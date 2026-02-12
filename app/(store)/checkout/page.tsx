@@ -55,7 +55,7 @@ export default function CheckoutPage() {
   ];
 
   const [deliveryMethod, setDeliveryMethod] = useState('pickup');
-  const [paymentMethod, setPaymentMethod] = useState('moolre');
+  const [paymentMethod, setPaymentMethod] = useState<'paystack' | 'moolre'>('paystack');
   const [errors, setErrors] = useState<any>({});
 
 
@@ -167,7 +167,8 @@ export default function CheckoutPage() {
             guest_checkout: !user,
             first_name: shippingData.firstName,
             last_name: shippingData.lastName,
-            tracking_number: trackingNumber
+            tracking_number: trackingNumber,
+            payment_method: paymentMethod
           }
         }])
         .select()
@@ -247,38 +248,55 @@ export default function CheckoutPage() {
       });
 
       // 4. Handle Payment Redirects or Completion
+      if (paymentMethod === 'paystack') {
+        try {
+          const paymentRes = await fetch('/api/payment/paystack', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              orderId: orderNumber,
+              amount: total,
+              customerEmail: shippingData.email,
+            }),
+          });
+          const paymentResult = await paymentRes.json();
+          if (!paymentResult.success) {
+            throw new Error(paymentResult.message || 'Payment initialization failed');
+          }
+          clearCart();
+          window.location.href = paymentResult.url;
+          return;
+        } catch (paymentErr: any) {
+          console.error('Payment Error:', paymentErr);
+          alert('Failed to initialize payment: ' + paymentErr.message);
+          setIsLoading(false);
+          return;
+        }
+      }
+
       if (paymentMethod === 'moolre') {
         try {
-          // Payment link reminder will be sent automatically after 15 mins if unpaid (via cron)
-
           const paymentRes = await fetch('/api/payment/moolre', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
               orderId: orderNumber,
               amount: total,
-              customerEmail: shippingData.email
-            })
+              customerEmail: shippingData.email,
+            }),
           });
-
           const paymentResult = await paymentRes.json();
-
           if (!paymentResult.success) {
             throw new Error(paymentResult.message || 'Payment initialization failed');
           }
-
-          // Clear cart before redirecting
           clearCart();
-
-          // Redirect to Moolre
           window.location.href = paymentResult.url;
           return;
-
         } catch (paymentErr: any) {
           console.error('Payment Error:', paymentErr);
           alert('Failed to initialize payment: ' + paymentErr.message);
           setIsLoading(false);
-          return; // Stop execution
+          return;
         }
       }
 
@@ -313,7 +331,7 @@ export default function CheckoutPage() {
           </div>
           <h1 className="text-2xl font-bold text-gray-900 mb-2">Your cart is empty</h1>
           <p className="text-gray-600 mb-8">Add some items to start the checkout process.</p>
-          <Link href="/shop" className="inline-block bg-emerald-700 text-white px-8 py-3 rounded-lg font-semibold hover:bg-emerald-800 transition-colors">
+          <Link href="/shop" className="inline-block bg-gray-900 text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-800 transition-colors">
             Return to Shop
           </Link>
         </div>
@@ -340,33 +358,33 @@ export default function CheckoutPage() {
               <button
                 onClick={() => !user && setCheckoutType('guest')}
                 className={`p-6 rounded-xl border-2 transition-all text-left cursor-pointer ${checkoutType === 'guest'
-                  ? 'border-emerald-700 bg-emerald-50'
+                  ? 'border-gray-900 bg-gray-50'
                   : 'border-gray-200 hover:border-gray-300'
                   } ${user ? 'opacity-50 cursor-not-allowed' : ''}`}
                 disabled={!!user}
               >
                 <div className="flex items-center justify-between mb-3">
-                  <i className="ri-user-line text-3xl text-emerald-700"></i>
-                  <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center ${checkoutType === 'guest' ? 'border-emerald-700 bg-emerald-700' : 'border-gray-300'
+                  <i className="ri-user-line text-3xl text-gray-900"></i>
+                  <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center ${checkoutType === 'guest' ? 'border-gray-900 bg-gray-900' : 'border-gray-300'
                     }`}>
                     {checkoutType === 'guest' && <i className="ri-check-line text-white text-sm"></i>}
                   </div>
                 </div>
                 <h3 className="text-lg font-bold text-gray-900 mb-2">Guest Checkout</h3>
                 <p className="text-sm text-gray-600">Quick checkout without creating an account</p>
-                {user && <p className="text-xs text-emerald-600 mt-2">You are logged in</p>}
+                {user && <p className="text-xs text-gray-700 mt-2">You are logged in</p>}
               </button>
 
               <button
                 onClick={() => setCheckoutType('account')}
                 className={`p-6 rounded-xl border-2 transition-all text-left cursor-pointer ${checkoutType === 'account'
-                  ? 'border-emerald-700 bg-emerald-50'
+                  ? 'border-gray-900 bg-gray-50'
                   : 'border-gray-200 hover:border-gray-300'
                   }`}
               >
                 <div className="flex items-center justify-between mb-3">
-                  <i className="ri-account-circle-line text-3xl text-emerald-700"></i>
-                  <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center ${checkoutType === 'account' ? 'border-emerald-700 bg-emerald-700' : 'border-gray-300'
+                  <i className="ri-account-circle-line text-3xl text-gray-900"></i>
+                  <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center ${checkoutType === 'account' ? 'border-gray-900 bg-gray-900' : 'border-gray-300'
                     }`}>
                     {checkoutType === 'account' && <i className="ri-check-line text-white text-sm"></i>}
                   </div>
@@ -399,7 +417,7 @@ export default function CheckoutPage() {
                           type="text"
                           value={shippingData.firstName}
                           onChange={(e) => setShippingData({ ...shippingData, firstName: e.target.value })}
-                          className={`w-full px-4 py-3 border-2 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 ${errors.firstName ? 'border-red-500' : 'border-gray-300'
+                          className={`w-full px-4 py-3 border-2 rounded-lg focus:ring-2 focus:ring-gray-600 focus:border-gray-600 ${errors.firstName ? 'border-red-500' : 'border-gray-300'
                             }`}
                           placeholder="John"
                         />
@@ -413,7 +431,7 @@ export default function CheckoutPage() {
                           type="text"
                           value={shippingData.lastName}
                           onChange={(e) => setShippingData({ ...shippingData, lastName: e.target.value })}
-                          className={`w-full px-4 py-3 border-2 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 ${errors.lastName ? 'border-red-500' : 'border-gray-300'
+                          className={`w-full px-4 py-3 border-2 rounded-lg focus:ring-2 focus:ring-gray-600 focus:border-gray-600 ${errors.lastName ? 'border-red-500' : 'border-gray-300'
                             }`}
                           placeholder="Doe"
                         />
@@ -430,7 +448,7 @@ export default function CheckoutPage() {
                         value={shippingData.email}
                         readOnly={!!user} // Make read-only if logged in (optional, but safer)
                         onChange={(e) => setShippingData({ ...shippingData, email: e.target.value })}
-                        className={`w-full px-4 py-3 border-2 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 ${errors.email ? 'border-red-500' : 'border-gray-300'
+                        className={`w-full px-4 py-3 border-2 rounded-lg focus:ring-2 focus:ring-gray-600 focus:border-gray-600 ${errors.email ? 'border-red-500' : 'border-gray-300'
                           } ${user ? 'bg-gray-100 cursor-not-allowed' : ''}`}
                         placeholder="you@example.com"
                       />
@@ -445,7 +463,7 @@ export default function CheckoutPage() {
                         type="tel"
                         value={shippingData.phone}
                         onChange={(e) => setShippingData({ ...shippingData, phone: e.target.value })}
-                        className={`w-full px-4 py-3 border-2 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 ${errors.phone ? 'border-red-500' : 'border-gray-300'
+                        className={`w-full px-4 py-3 border-2 rounded-lg focus:ring-2 focus:ring-gray-600 focus:border-gray-600 ${errors.phone ? 'border-red-500' : 'border-gray-300'
                           }`}
                         placeholder="+233 XX XXX XXXX"
                       />
@@ -460,7 +478,7 @@ export default function CheckoutPage() {
                         type="text"
                         value={shippingData.address}
                         onChange={(e) => setShippingData({ ...shippingData, address: e.target.value })}
-                        className={`w-full px-4 py-3 border-2 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 ${errors.address ? 'border-red-500' : 'border-gray-300'
+                        className={`w-full px-4 py-3 border-2 rounded-lg focus:ring-2 focus:ring-gray-600 focus:border-gray-600 ${errors.address ? 'border-red-500' : 'border-gray-300'
                           }`}
                         placeholder="House number and street name"
                       />
@@ -476,7 +494,7 @@ export default function CheckoutPage() {
                           type="text"
                           value={shippingData.city}
                           onChange={(e) => setShippingData({ ...shippingData, city: e.target.value })}
-                          className={`w-full px-4 py-3 border-2 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 ${errors.city ? 'border-red-500' : 'border-gray-300'
+                          className={`w-full px-4 py-3 border-2 rounded-lg focus:ring-2 focus:ring-gray-600 focus:border-gray-600 ${errors.city ? 'border-red-500' : 'border-gray-300'
                             }`}
                           placeholder="Accra"
                         />
@@ -489,7 +507,7 @@ export default function CheckoutPage() {
                         <select
                           value={shippingData.region}
                           onChange={(e) => setShippingData({ ...shippingData, region: e.target.value })}
-                          className={`w-full px-4 py-3 border-2 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 bg-white ${errors.region ? 'border-red-500' : 'border-gray-300'
+                          className={`w-full px-4 py-3 border-2 rounded-lg focus:ring-2 focus:ring-gray-600 focus:border-gray-600 bg-white ${errors.region ? 'border-red-500' : 'border-gray-300'
                             }`}
                         >
                           <option value="">Select Region</option>
@@ -507,7 +525,7 @@ export default function CheckoutPage() {
                           type="checkbox"
                           checked={saveAddress}
                           onChange={(e) => setSaveAddress(e.target.checked)}
-                          className="w-5 h-5 text-emerald-700 rounded border-gray-300 focus:ring-emerald-500"
+                          className="w-5 h-5 text-gray-900 rounded border-gray-300 focus:ring-gray-600"
                         />
                         <span className="text-sm text-gray-700">Save this address for future orders</span>
                       </label>
@@ -516,7 +534,7 @@ export default function CheckoutPage() {
 
                   <button
                     onClick={handleContinueToDelivery}
-                    className="w-full mt-6 bg-emerald-700 hover:bg-emerald-800 text-white py-4 rounded-lg font-semibold transition-colors whitespace-nowrap cursor-pointer"
+                    className="w-full mt-6 bg-gray-900 hover:bg-gray-800 text-white py-4 rounded-lg font-semibold transition-colors whitespace-nowrap cursor-pointer"
                   >
                     Continue to Delivery
                   </button>
@@ -531,7 +549,7 @@ export default function CheckoutPage() {
                 <div className="bg-white rounded-xl shadow-sm p-6 mb-6">
                   <h2 className="text-xl font-bold text-gray-900 mb-6">Delivery Method</h2>
                   <div className="space-y-4">
-                    <label className={`flex items-center justify-between p-4 border-2 rounded-lg cursor-pointer transition-colors ${deliveryMethod === 'pickup' ? 'border-emerald-700 bg-emerald-50' : 'border-gray-300 hover:border-gray-400'
+                    <label className={`flex items-center justify-between p-4 border-2 rounded-lg cursor-pointer transition-colors ${deliveryMethod === 'pickup' ? 'border-gray-900 bg-gray-50' : 'border-gray-300 hover:border-gray-400'
                       }`}>
                       <div className="flex items-center space-x-4">
                         <input
@@ -540,17 +558,17 @@ export default function CheckoutPage() {
                           value="pickup"
                           checked={deliveryMethod === 'pickup'}
                           onChange={(e) => setDeliveryMethod(e.target.value)}
-                          className="w-5 h-5 text-emerald-700"
+                          className="w-5 h-5 text-gray-900"
                         />
                         <div>
                           <p className="font-semibold text-gray-900">Store Pickup</p>
                           <p className="text-sm text-gray-600">Pick up from our store — Ready in 24 hours</p>
                         </div>
                       </div>
-                      <p className="font-bold text-emerald-700">FREE</p>
+                      <p className="font-bold text-gray-900">FREE</p>
                     </label>
 
-                    <label className={`flex items-center justify-between p-4 border-2 rounded-lg cursor-pointer transition-colors ${deliveryMethod === 'doorstep' ? 'border-emerald-700 bg-emerald-50' : 'border-gray-300 hover:border-gray-400'
+                    <label className={`flex items-center justify-between p-4 border-2 rounded-lg cursor-pointer transition-colors ${deliveryMethod === 'doorstep' ? 'border-gray-900 bg-gray-50' : 'border-gray-300 hover:border-gray-400'
                       }`}>
                       <div className="flex items-center space-x-4">
                         <input
@@ -559,7 +577,7 @@ export default function CheckoutPage() {
                           value="doorstep"
                           checked={deliveryMethod === 'doorstep'}
                           onChange={(e) => setDeliveryMethod(e.target.value)}
-                          className="w-5 h-5 text-emerald-700"
+                          className="w-5 h-5 text-gray-900"
                         />
                         <div>
                           <p className="font-semibold text-gray-900">Doorstep Delivery</p>
@@ -570,10 +588,10 @@ export default function CheckoutPage() {
                     </label>
 
                     {/* Comprehensive delivery options - to be re-enabled later
-                    <label className={`flex items-center justify-between p-4 border-2 rounded-lg cursor-pointer transition-colors ${deliveryMethod === 'accra' ? 'border-emerald-700 bg-emerald-50' : 'border-gray-300 hover:border-gray-400'
+                    <label className={`flex items-center justify-between p-4 border-2 rounded-lg cursor-pointer transition-colors ${deliveryMethod === 'accra' ? 'border-gray-900 bg-gray-50' : 'border-gray-300 hover:border-gray-400'
                       }`}>
                       <div className="flex items-center space-x-4">
-                        <input type="radio" name="delivery" value="accra" checked={deliveryMethod === 'accra'} onChange={(e) => setDeliveryMethod(e.target.value)} className="w-5 h-5 text-emerald-700" />
+                        <input type="radio" name="delivery" value="accra" checked={deliveryMethod === 'accra'} onChange={(e) => setDeliveryMethod(e.target.value)} className="w-5 h-5 text-gray-900" />
                         <div>
                           <p className="font-semibold text-gray-900">Accra Delivery</p>
                           <p className="text-sm text-gray-600">Delivery within Accra</p>
@@ -581,10 +599,10 @@ export default function CheckoutPage() {
                       </div>
                       <p className="font-bold text-gray-900">GH₵ 40.00</p>
                     </label>
-                    <label className={`flex items-center justify-between p-4 border-2 rounded-lg cursor-pointer transition-colors ${deliveryMethod === 'outside-accra' ? 'border-emerald-700 bg-emerald-50' : 'border-gray-300 hover:border-gray-400'
+                    <label className={`flex items-center justify-between p-4 border-2 rounded-lg cursor-pointer transition-colors ${deliveryMethod === 'outside-accra' ? 'border-gray-900 bg-gray-50' : 'border-gray-300 hover:border-gray-400'
                       }`}>
                       <div className="flex items-center space-x-4">
-                        <input type="radio" name="delivery" value="outside-accra" checked={deliveryMethod === 'outside-accra'} onChange={(e) => setDeliveryMethod(e.target.value)} className="w-5 h-5 text-emerald-700" />
+                        <input type="radio" name="delivery" value="outside-accra" checked={deliveryMethod === 'outside-accra'} onChange={(e) => setDeliveryMethod(e.target.value)} className="w-5 h-5 text-gray-900" />
                         <div>
                           <p className="font-semibold text-gray-900">Outside Accra Delivery</p>
                           <p className="text-sm text-gray-600">Delivery to bus stations (VIP, OA, STC, etc.)</p>
@@ -593,6 +611,50 @@ export default function CheckoutPage() {
                       <p className="font-bold text-gray-900">GH₵ 30.00</p>
                     </label>
                     */}
+                  </div>
+
+                  <h2 className="text-xl font-bold text-gray-900 mt-8 mb-4">Payment Method</h2>
+                  <div className="space-y-4">
+                    <label
+                      className={`flex items-center justify-between p-4 border-2 rounded-lg cursor-pointer transition-colors ${paymentMethod === 'paystack' ? 'border-gray-900 bg-gray-50' : 'border-gray-300 hover:border-gray-400'
+                        }`}
+                    >
+                      <div className="flex items-center space-x-4">
+                        <input
+                          type="radio"
+                          name="payment"
+                          value="paystack"
+                          checked={paymentMethod === 'paystack'}
+                          onChange={() => setPaymentMethod('paystack')}
+                          className="w-5 h-5 text-gray-900"
+                        />
+                        <div>
+                          <p className="font-semibold text-gray-900">Paystack</p>
+                          <p className="text-sm text-gray-600">Card, Mobile Money & more</p>
+                        </div>
+                      </div>
+                      <i className="ri-bank-card-line text-2xl text-gray-500"></i>
+                    </label>
+                    <label
+                      className={`flex items-center justify-between p-4 border-2 rounded-lg cursor-pointer transition-colors ${paymentMethod === 'moolre' ? 'border-gray-900 bg-gray-50' : 'border-gray-300 hover:border-gray-400'
+                        }`}
+                    >
+                      <div className="flex items-center space-x-4">
+                        <input
+                          type="radio"
+                          name="payment"
+                          value="moolre"
+                          checked={paymentMethod === 'moolre'}
+                          onChange={() => setPaymentMethod('moolre')}
+                          className="w-5 h-5 text-gray-900"
+                        />
+                        <div>
+                          <p className="font-semibold text-gray-900">Moolre</p>
+                          <p className="text-sm text-gray-600">Mobile Money (MTN, Vodafone, AirtelTigo)</p>
+                        </div>
+                      </div>
+                      <i className="ri-smartphone-line text-2xl text-gray-500"></i>
+                    </label>
                   </div>
 
                   <div className="flex flex-col-reverse md:flex-row gap-4 mt-6">
@@ -606,7 +668,7 @@ export default function CheckoutPage() {
                     <button
                       onClick={handleContinueToPayment}
                       disabled={isLoading}
-                      className="flex-1 bg-emerald-700 hover:bg-emerald-800 text-white py-4 rounded-lg font-semibold transition-colors whitespace-nowrap cursor-pointer disabled:opacity-70 flex items-center justify-center"
+                      className="flex-1 bg-gray-900 hover:bg-gray-800 text-white py-4 rounded-lg font-semibold transition-colors whitespace-nowrap cursor-pointer disabled:opacity-70 flex items-center justify-center"
                     >
                       {isLoading ? (
                         <>
@@ -617,7 +679,7 @@ export default function CheckoutPage() {
                           Processing...
                         </>
                       ) : (
-                        'Pay with Mobile Money'
+                        paymentMethod === 'paystack' ? 'Pay with Paystack' : 'Pay with Moolre'
                       )}
                     </button>
                   </div>

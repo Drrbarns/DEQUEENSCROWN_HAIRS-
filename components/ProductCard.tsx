@@ -26,7 +26,6 @@ const COLOR_MAP: Record<string, string> = {
 export function getColorHex(colorName: string): string | null {
   const lower = colorName.toLowerCase().trim();
   if (COLOR_MAP[lower]) return COLOR_MAP[lower];
-  // Try partial match (e.g. "Light Blue" -> "blue")
   for (const [key, val] of Object.entries(COLOR_MAP)) {
     if (lower.includes(key)) return val;
   }
@@ -54,6 +53,7 @@ interface ProductCardProps {
   hasVariants?: boolean;
   minVariantPrice?: number;
   colorVariants?: ColorVariant[];
+  brand?: string;
 }
 
 export default function ProductCard({
@@ -71,7 +71,8 @@ export default function ProductCard({
   moq = 1,
   hasVariants = false,
   minVariantPrice,
-  colorVariants = []
+  colorVariants = [],
+  brand,
 }: ProductCardProps) {
   const { addToCart } = useCart();
   const [activeColor, setActiveColor] = useState<string | null>(null);
@@ -79,65 +80,49 @@ export default function ProductCard({
   const discount = originalPrice ? Math.round((1 - displayPrice / originalPrice) * 100) : 0;
   const MAX_SWATCHES = 5;
 
-  const formatPrice = (val: number) => `GH\u20B5${val.toFixed(2)}`;
+  const formatPrice = (val: number) => `GH₵${val.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 
   return (
-    <div className="group bg-transparent rounded-lg h-full flex flex-col hover-lift">
-      <Link href={`/product/${slug}`} className="relative block aspect-[3/4] overflow-hidden rounded-xl bg-gray-100 mb-4 shadow-sm group-hover:shadow-xl transition-all duration-300">
+    <div className="group bg-white h-full flex flex-col">
+      {/* Image: full width, square-ish, no rounded corners */}
+      <Link
+        href={`/product/${slug}`}
+        className="relative block aspect-[3/4] overflow-hidden bg-gray-100"
+      >
         <LazyImage
           src={image}
           alt={name}
-          className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+          className="w-full h-full object-cover object-top group-hover:scale-[1.02] transition-transform duration-500"
         />
-
-        <div className="absolute top-3 left-3 flex flex-col gap-2">
-          {badge && (
-            <span className="bg-white/90 backdrop-blur text-gray-900 border border-gray-100 text-[10px] uppercase tracking-wider font-bold px-3 py-1.5 rounded-md shadow-sm">
-              {badge}
-            </span>
-          )}
-          {discount > 0 && (
-            <span className="bg-red-50 text-red-700 border border-red-100 text-[10px] uppercase tracking-wider font-bold px-3 py-1.5 rounded-md shadow-sm">
-              -{discount}%
-            </span>
-          )}
-        </div>
-
-        {!inStock && (
-          <div className="absolute inset-0 bg-white/60 backdrop-blur-[2px] flex items-center justify-center">
-            <span className="bg-gray-900 text-white px-4 py-2 rounded-lg text-sm font-medium">Out of Stock</span>
-          </div>
+        {badge && (
+          <span className="absolute top-3 left-3 bg-white/90 text-gray-900 text-[10px] uppercase tracking-wider font-semibold px-2.5 py-1">
+            {badge}
+          </span>
         )}
-
-        {inStock && (
-          <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300 hidden lg:block">
-            {hasVariants ? (
-              <span className="w-full bg-white text-gray-900 hover:bg-gray-900 hover:text-white py-3 rounded-lg font-medium shadow-lg transition-colors flex items-center justify-center space-x-2 text-sm">
-                <i className="ri-list-check"></i>
-                <span>Select Options</span>
-              </span>
-            ) : (
-              <button
-                onClick={(e) => {
-                  e.preventDefault();
-                  addToCart({ id, name, price, image, quantity: moq, slug, maxStock, moq });
-                }}
-                className="w-full bg-white text-gray-900 hover:bg-gray-900 hover:text-white py-3 rounded-lg font-medium shadow-lg transition-colors flex items-center justify-center space-x-2 text-sm"
-              >
-                <i className="ri-shopping-cart-2-line"></i>
-                <span>{moq > 1 ? `Add ${moq} to Cart` : 'Quick Add'}</span>
-              </button>
-            )}
+        {discount > 0 && (
+          <span className="absolute top-3 left-3 bg-red-50 text-red-700 text-[10px] uppercase tracking-wider font-semibold px-2.5 py-1">
+            -{discount}%
+          </span>
+        )}
+        {!inStock && (
+          <div className="absolute inset-0 bg-white/70 flex items-center justify-center">
+            <span className="text-gray-900 text-sm font-medium">Out of Stock</span>
           </div>
         )}
       </Link>
 
-      <div className="flex flex-col flex-grow">
-        <Link href={`/product/${slug}`}>
-          <h3 className="font-serif text-lg leading-tight text-gray-900 mb-1 group-hover:text-emerald-800 transition-colors line-clamp-2">
+      {/* Product info: left-aligned, serif name/brand, bold price */}
+      <div className="flex flex-col flex-grow pt-4 pb-2 text-left">
+        <Link href={`/product/${slug}`} className="mb-0.5">
+          <h3 className="font-serif text-[1.05rem] leading-snug text-black font-medium line-clamp-2 group-hover:underline">
             {name}
           </h3>
         </Link>
+        {brand && (
+          <p className="font-serif text-sm text-black/80 font-normal mb-1.5">
+            {brand}
+          </p>
+        )}
 
         {colorVariants.length > 0 && (
           <div className="flex items-center gap-1.5 mb-2">
@@ -151,7 +136,7 @@ export default function ProductCard({
                 }}
                 className={`w-4 h-4 rounded-full border transition-all duration-200 flex-shrink-0 ${
                   activeColor === color.name
-                    ? 'ring-2 ring-offset-1 ring-emerald-600 scale-110'
+                    ? 'ring-2 ring-offset-1 ring-black'
                     : 'hover:scale-110'
                 } ${color.hex === '#FFFFFF' ? 'border-gray-300' : 'border-transparent'}`}
                 style={{ backgroundColor: color.hex }}
@@ -163,39 +148,38 @@ export default function ProductCard({
           </div>
         )}
 
-        <div className="flex items-baseline space-x-2 mb-2">
-          {hasVariants && minVariantPrice ? (
-            <span className="text-gray-900 font-semibold">From {formatPrice(minVariantPrice)}</span>
+        <div className="mb-3">
+          {hasVariants && minVariantPrice != null ? (
+            <span className="font-sans text-xl font-bold text-black">From {formatPrice(minVariantPrice)}</span>
           ) : (
-            <span className="text-gray-900 font-semibold">{formatPrice(price)}</span>
+            <span className="font-sans text-xl font-bold text-black">{formatPrice(price)}</span>
           )}
-          {originalPrice && (
-            <span className="text-sm text-gray-400 line-through">{formatPrice(originalPrice)}</span>
+          {originalPrice && originalPrice > price && (
+            <span className="font-sans text-sm text-gray-500 line-through ml-2">{formatPrice(originalPrice)}</span>
           )}
         </div>
 
-        <div className="mt-auto pt-2 lg:hidden">
-          {hasVariants ? (
-            <Link
-              href={`/product/${slug}`}
-              className="w-full border border-gray-200 text-gray-900 py-2.5 rounded-lg text-sm font-medium hover:bg-gray-50 active:bg-gray-100 transition-colors flex items-center justify-center space-x-1"
-            >
-              <i className="ri-list-check text-sm"></i>
-              <span>Select Options</span>
-            </Link>
-          ) : (
-            <button
-              onClick={(e) => {
-                e.preventDefault();
-                addToCart({ id, name, price, image, quantity: moq, slug, maxStock, moq });
-              }}
-              disabled={!inStock}
-              className="w-full border border-gray-200 text-gray-900 py-2.5 rounded-lg text-sm font-medium hover:bg-gray-50 active:bg-gray-100 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              {moq > 1 ? `Add ${moq} to Cart` : 'Add to Cart'}
-            </button>
-          )}
-        </div>
+        {/* Add to cart: full width, thin black border, transparent bg */}
+        {hasVariants ? (
+          <Link
+            href={`/product/${slug}`}
+            className="w-full border border-black py-3 px-4 text-center text-black font-medium text-sm hover:bg-black hover:text-white transition-colors"
+          >
+            Select Options
+          </Link>
+        ) : (
+          <button
+            type="button"
+            onClick={(e) => {
+              e.preventDefault();
+              addToCart({ id, name, price, image, quantity: moq, slug, maxStock, moq });
+            }}
+            disabled={!inStock}
+            className="w-full border border-black py-3 px-4 text-center text-black font-medium text-sm hover:bg-black hover:text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            Add to cart
+          </button>
+        )}
       </div>
     </div>
   );

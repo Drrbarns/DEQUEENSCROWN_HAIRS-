@@ -18,6 +18,7 @@ export interface SiteSettings {
     social_twitter: string;
     social_tiktok: string;
     social_youtube: string;
+    social_snapchat: string;
     social_whatsapp: string;
     currency: string;
     currency_symbol: string;
@@ -35,6 +36,7 @@ export interface SiteSettings {
     hero_headline: string;
     hero_subheadline: string;
     hero_image: string;
+    hero_video: string;
     hero_badge_label: string;
     hero_badge_text: string;
     hero_badge_subtext: string;
@@ -181,36 +183,38 @@ export interface CMSContextType {
 
 // ── Defaults ───────────────────────────────────────────────────────
 export const defaultSettings: SiteSettings = {
-    // General
-    site_name: 'StandardStore',
-    site_tagline: 'Premium Shopping Experience',
+    // General — DEQUEENSCROWN HAIRS
+    site_name: 'DEQUEENSCROWN HAIRS',
+    site_tagline: 'Premium human hair & wigs, made for queens.',
     site_logo: '/logo.png',
     site_favicon: '/favicon.ico',
-    contact_email: 'support@standardstore.com',
-    contact_phone: '0546014734',
-    contact_address: 'Accra, Ghana',
+    contact_email: 'dequeenscrownhair@gmail.com',
+    contact_phone: '0204292019',
+    contact_address: 'Ghana',
     social_facebook: '',
-    social_instagram: '',
+    social_instagram: 'https://www.instagram.com/de_queens_crown_hairs?igsh=anRyMHoybjgzYzJt',
     social_twitter: '',
-    social_tiktok: '',
+    social_tiktok: 'https://www.tiktok.com/@de_queenscrownhair?_r=1&_t=ZT-93pSK4ZI97N',
     social_youtube: '',
-    social_whatsapp: '',
+    social_snapchat: 'https://www.snapchat.com/add/de_queenscrown?share_id=ozGgV0X-xMY&locale=en-GB',
+    social_whatsapp: '0204292019',
     currency: 'GHS',
     currency_symbol: 'GH₵',
 
-    // Appearance
-    primary_color: '#059669',
-    secondary_color: '#0D9488',
-    accent_color: '#047857',
+    // Appearance — black & white
+    primary_color: '#000000',
+    secondary_color: '#171717',
+    accent_color: '#404040',
     header_bg: '#ffffff',
-    header_text: '#374151',
-    footer_bg: '#064e3b',
+    header_text: '#171717',
+    footer_bg: '#0a0a0a',
     footer_text: '#ffffff',
 
     // Hero
-    hero_headline: 'Premium Products, Direct to You',
-    hero_subheadline: 'Verified quality products at unbeatable prices.',
+    hero_headline: 'Crown Your Look with Premium Hair',
+    hero_subheadline: 'Human hair wigs & extensions, handpicked for quality and style.',
     hero_image: '/hero.jpg',
+    hero_video: '/wighero.mp4',
     hero_badge_label: 'Exclusive Offer',
     hero_badge_text: '25% Off',
     hero_badge_subtext: 'On your first dedicated order',
@@ -240,28 +244,28 @@ export const defaultSettings: SiteSettings = {
     feature4_title: 'Secure Payment',
     feature4_desc: 'Safe checkout',
 
-    // About
+    // About — DEQUEENSCROWN HAIRS
     about_hero_title: 'Our Story',
-    about_hero_subtitle: 'Learn about who we are and what we do.',
-    about_story_title: 'From Passion to Business',
-    about_story_content: 'Our journey started with a vision to bring quality products to everyone at affordable prices.',
-    about_story_image: '/about.jpg',
-    about_founder_name: 'Founder',
-    about_founder_title: 'CEO',
-    about_mission1_title: 'Direct Sourcing',
-    about_mission1_content: 'We go directly to the source, eliminating middlemen and passing the savings on to you.',
-    about_mission2_title: 'Quality For Everyone',
-    about_mission2_content: 'Our mission is to democratize access to quality goods at affordable prices.',
-    about_values_title: 'Why Shop With Us?',
-    about_values_subtitle: 'Quality and value, guaranteed.',
-    about_cta_title: 'Ready to experience the difference?',
-    about_cta_subtitle: 'Join thousands of happy customers.',
+    about_hero_subtitle: 'Where quality hair meets the crown you deserve.',
+    about_story_title: 'Built for Queens, by a Queen',
+    about_story_content: 'De Queen\'s Crown Hairs started from a simple belief: every woman deserves to feel like royalty—without compromise on quality or style.\n\nWe source premium human hair and create wigs that look and feel like your own. No shortcuts, no synthetic substitutes where it matters. Just honest quality you can trust.\n\nWhether you\'re after a bold new look or a seamless everyday style, we\'re here to help you crown it.',
+    about_story_image: '/about-wig.png',
+    about_founder_name: 'De Queen\'s Crown Hairs',
+    about_founder_title: 'Premium Hair & Wigs',
+    about_mission1_title: 'Real Hair, Real Quality',
+    about_mission1_content: 'We work with trusted suppliers to bring you 100% human hair—no mix-ups, no false claims. Every piece is chosen for texture, longevity, and that natural look you deserve.',
+    about_mission2_title: 'Style That Fits Your Life',
+    about_mission2_content: 'From sleek bobs to flowing lengths, we offer styles that match how you live. Our goal is to make premium hair accessible so you can switch it up whenever you want, with confidence.',
+    about_values_title: 'Why Choose De Queen\'s Crown?',
+    about_values_subtitle: 'Quality you can see, trust you can feel.',
+    about_cta_title: 'Ready to Find Your Crown?',
+    about_cta_subtitle: 'Explore our collection and discover the piece that’s made for you.',
 
     // Contact
     contact_hero_title: 'Get In Touch',
-    contact_hero_subtitle: 'Have a question or need assistance? Our friendly team is here to help.',
-    contact_hours: 'Mon-Fri, 8am-6pm GMT',
-    contact_whatsapp_hours: 'Chat with us instantly',
+    contact_hero_subtitle: 'Questions about our hair or your order? We’re here to help.',
+    contact_hours: 'Mon–Sat, 9am–6pm',
+    contact_whatsapp_hours: 'Chat with us on WhatsApp',
     contact_map_link: 'https://maps.google.com',
     contact_team_json: '[]',
 

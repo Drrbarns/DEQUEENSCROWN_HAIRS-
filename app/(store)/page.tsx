@@ -56,6 +56,7 @@ export default function Home() {
   const heroHeadline = getSetting('hero_headline');
   const heroSubheadline = getSetting('hero_subheadline');
   const heroImage = getSetting('hero_image') || '/hero.jpg';
+  const heroVideo = getSetting('hero_video') || '';
   const heroPrimaryText = getSetting('hero_primary_btn_text');
   const heroPrimaryLink = getSetting('hero_primary_btn_link') || '/shop';
   const heroSecondaryText = getSetting('hero_secondary_btn_text');
@@ -84,7 +85,7 @@ export default function Home() {
   const renderBanners = () => {
     if (activeBanners.length === 0) return null;
     return (
-      <div className="bg-emerald-900 text-white py-2 overflow-hidden relative">
+      <div className="bg-gray-900 text-white py-2 overflow-hidden relative">
         <div className="flex animate-marquee whitespace-nowrap">
           {activeBanners.concat(activeBanners).map((banner, index) => (
             <span key={index} className="mx-8 text-sm font-medium tracking-wide flex items-center">
@@ -100,108 +101,91 @@ export default function Home() {
     <main className="flex-col items-center justify-between min-h-screen">
       {renderBanners()}
 
-      {/* Hero Section */}
-      <section className="relative w-full overflow-hidden lg:bg-gradient-to-b lg:from-stone-50 lg:via-white lg:to-cream-50">
-
-        {/* Mobile: Full Background Image with Gradient Overlay */}
-        <div className="absolute inset-0 lg:hidden z-0">
-          <Image
-            src={heroImage}
-            fill
-            className="object-cover transition-opacity duration-1000"
-            alt="Hero Background"
-            priority
-            sizes="100vw"
-            quality={75}
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10"></div>
+      {/* Hero Section — Video or image background (mobile-responsive) */}
+      <section className="relative w-full min-h-[70vh] xs:min-h-[80vh] sm:min-h-[85vh] lg:min-h-[90vh] flex flex-col justify-end overflow-hidden">
+        {/* Background: video when URL is set, else image */}
+        <div className="absolute inset-0 z-0">
+          {heroVideo ? (
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="auto"
+              className="absolute inset-0 w-full h-full object-cover object-center"
+              poster={heroImage}
+              style={{ willChange: 'transform' }}
+            >
+              <source src={heroVideo} type="video/mp4" />
+            </video>
+          ) : (
+            <Image
+              src={heroImage}
+              fill
+              className="object-cover"
+              alt="Hero background"
+              priority
+              sizes="100vw"
+              quality={80}
+            />
+          )}
+          <div className="absolute inset-0 bg-black/50" aria-hidden />
         </div>
 
-        {/* Desktop Blobs */}
-        <div className="hidden lg:block absolute inset-0 opacity-30 pointer-events-none">
-          <div className="absolute -top-20 -right-20 w-96 h-96 bg-emerald-100/50 rounded-full blur-3xl"></div>
-          <div className="absolute top-40 -left-20 w-72 h-72 bg-amber-50 rounded-full blur-3xl"></div>
-        </div>
-
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 h-[85vh] lg:h-auto lg:py-24 flex flex-col justify-end lg:block pb-16 lg:pb-0">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-
-            {/* Desktop: Image Layout (Hidden on Mobile) */}
-            <div className="hidden lg:block order-last relative">
-              <div className="relative aspect-[3/4] lg:aspect-auto lg:h-[650px] overflow-hidden rounded-[2rem] shadow-xl">
-                <Image
-                  src={heroImage}
-                  alt="Hero Image"
-                  fill
-                  className="object-cover object-top hover:scale-105 transition-transform duration-1000"
-                  priority
-                  sizes="50vw"
-                  quality={80}
-                />
-
-                {/* Floating Badge (Desktop Only) */}
-                {heroBadgeLabel && (
-                  <div className="absolute bottom-10 left-10 bg-white/90 backdrop-blur-md rounded-2xl p-6 shadow-2xl max-w-xs z-20 border border-white/50">
-                    <p className="font-serif text-emerald-800 text-lg italic mb-1">{heroBadgeLabel}</p>
-                    <p className="text-3xl font-bold text-gray-900 mb-1">{heroBadgeText}</p>
-                    <p className="text-sm text-gray-600 font-medium">{heroBadgeSubtext}</p>
-                  </div>
-                )}
-              </div>
+        {/* Content */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pb-16 sm:pb-20 lg:pb-24 pt-24 text-center">
+          {heroTagText && (
+            <p className="text-white/90 text-sm font-semibold tracking-widest uppercase mb-4 animate-fade-in-up">
+              {heroTagText}
+            </p>
+          )}
+          <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white leading-tight mb-4 lg:mb-6 max-w-4xl mx-auto drop-shadow-md animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
+            {heroHeadline}
+          </h1>
+          <p className="text-lg sm:text-xl text-white/90 max-w-2xl mx-auto mb-8 lg:mb-10 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+            {heroSubheadline}
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
+            <Link
+              href={heroPrimaryLink}
+              className="inline-flex items-center justify-center bg-white text-gray-900 hover:bg-gray-100 px-8 py-4 rounded-full font-medium text-lg transition-colors"
+            >
+              {heroPrimaryText}
+            </Link>
+            {heroSecondaryText && (
+              <Link
+                href={heroSecondaryLink}
+                className="inline-flex items-center justify-center border-2 border-white text-white hover:bg-white hover:text-gray-900 px-8 py-4 rounded-full font-medium text-lg transition-colors"
+              >
+                {heroSecondaryText}
+              </Link>
+            )}
+          </div>
+          {/* Stats — desktop */}
+          <div className="mt-12 pt-8 border-t border-white/20 hidden lg:flex justify-center gap-12">
+            <div className="text-center">
+              <p className="font-serif font-bold text-white text-lg">{stat1Title}</p>
+              <p className="text-sm text-white/80">{stat1Desc}</p>
             </div>
-
-            {/* Content Column */}
-            <div className="relative z-10 text-center lg:text-left transition-colors duration-300">
-
-              {heroTagText && (
-                <div className="inline-flex items-center space-x-2 mb-4 lg:mb-6 justify-center lg:justify-start animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
-                  <span className="h-px w-8 bg-white/70 lg:bg-emerald-800"></span>
-                  <span className="text-white lg:text-emerald-800 text-sm font-semibold tracking-widest uppercase drop-shadow-sm lg:drop-shadow-none">
-                    {heroTagText}
-                  </span>
-                  <span className="h-px w-8 bg-white/70 lg:hidden"></span>
-                </div>
-              )}
-
-              <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-[3.2rem] xl:text-5xl text-white lg:text-gray-900 leading-[1.15] mb-4 lg:mb-6 drop-shadow-lg lg:drop-shadow-none animate-fade-in-up max-w-xl mx-auto lg:mx-0" style={{ animationDelay: '0.2s' }}>
-                {heroHeadline}
-              </h1>
-
-              <p className="text-lg text-white/90 lg:text-gray-600 leading-relaxed max-w-md mx-auto lg:mx-0 font-light mb-8 lg:mb-10 drop-shadow-md lg:drop-shadow-none animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
-                {heroSubheadline}
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start px-4 lg:px-0 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-                <Link href={heroPrimaryLink} className="inline-flex items-center justify-center bg-white lg:bg-gray-900 text-gray-900 lg:text-white hover:bg-emerald-50 lg:hover:bg-emerald-800 px-10 py-4 rounded-full font-medium transition-all text-lg shadow-xl hover:shadow-2xl hover:-translate-y-1 btn-animate">
-                  {heroPrimaryText}
-                </Link>
-                {heroSecondaryText && (
-                  <Link href={heroSecondaryLink} className="inline-flex items-center justify-center bg-white/20 backdrop-blur-md border border-white/50 lg:bg-white lg:border-gray-200 text-white lg:text-gray-900 hover:bg-white/30 lg:hover:text-emerald-800 lg:hover:border-emerald-800 px-10 py-4 rounded-full font-medium transition-colors text-lg btn-animate">
-                    {heroSecondaryText}
-                  </Link>
-                )}
-              </div>
-
-              {/* Stats - Desktop Only */}
-              <div className="mt-12 pt-8 border-t border-gray-200 hidden lg:grid grid-cols-3 gap-6">
-                <div className="flex flex-col items-start text-left">
-                  <p className="font-serif font-bold text-gray-900 text-lg">{stat1Title}</p>
-                  <p className="text-sm text-gray-500">{stat1Desc}</p>
-                </div>
-                <div className="flex flex-col items-start text-left">
-                  <p className="font-serif font-bold text-gray-900 text-lg">{stat2Title}</p>
-                  <p className="text-sm text-gray-500">{stat2Desc}</p>
-                </div>
-                <div className="flex flex-col items-start text-left">
-                  <p className="font-serif font-bold text-gray-900 text-lg">{stat3Title}</p>
-                  <p className="text-sm text-gray-500">{stat3Desc}</p>
-                </div>
-              </div>
-
+            <div className="text-center">
+              <p className="font-serif font-bold text-white text-lg">{stat2Title}</p>
+              <p className="text-sm text-white/80">{stat2Desc}</p>
             </div>
-
+            <div className="text-center">
+              <p className="font-serif font-bold text-white text-lg">{stat3Title}</p>
+              <p className="text-sm text-white/80">{stat3Desc}</p>
+            </div>
           </div>
         </div>
+
+        {/* Optional floating badge */}
+        {heroBadgeLabel && (
+          <div className="absolute bottom-8 left-4 sm:left-8 lg:left-12 z-10 bg-white/95 backdrop-blur rounded-2xl p-4 sm:p-5 shadow-xl max-w-[220px] animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+            <p className="font-serif text-gray-800 text-sm italic mb-0.5">{heroBadgeLabel}</p>
+            <p className="text-2xl font-bold text-gray-900">{heroBadgeText}</p>
+            <p className="text-sm text-gray-600">{heroBadgeSubtext}</p>
+          </div>
+        )}
       </section>
 
       {/* Categories Section */}
@@ -212,7 +196,7 @@ export default function Home() {
               <h2 className="font-serif text-4xl md:text-5xl text-gray-900 mb-4">Shop by Category</h2>
               <p className="text-gray-600 text-lg max-w-md">Explore our carefully curated collections</p>
             </div>
-            <Link href="/categories" className="hidden md:flex items-center text-emerald-800 font-medium hover:text-emerald-900 transition-colors">
+            <Link href="/categories" className="hidden md:flex items-center text-gray-800 font-medium hover:text-gray-900 transition-colors">
               View All <i className="ri-arrow-right-line ml-2"></i>
             </Link>
           </AnimatedSection>
@@ -232,7 +216,7 @@ export default function Home() {
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
                   <div className="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-sm p-4 rounded-xl text-center transform translate-y-2 opacity-90 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
                     <h3 className="font-serif font-bold text-gray-900 text-lg">{category.name}</h3>
-                    <span className="text-xs text-emerald-800 font-medium uppercase tracking-wider mt-1 block">View Collection</span>
+                    <span className="text-xs text-gray-800 font-medium uppercase tracking-wider mt-1 block">View Collection</span>
                   </div>
                 </div>
               </Link>
@@ -240,7 +224,7 @@ export default function Home() {
           </AnimatedGrid>
 
           <div className="mt-8 text-center md:hidden">
-            <Link href="/categories" className="inline-flex items-center text-emerald-800 font-medium hover:text-emerald-900 transition-colors">
+            <Link href="/categories" className="inline-flex items-center text-gray-800 font-medium hover:text-gray-900 transition-colors">
               View All <i className="ri-arrow-right-line ml-2"></i>
             </Link>
           </div>
@@ -305,6 +289,7 @@ export default function Home() {
                     hasVariants={hasVariants}
                     minVariantPrice={minVariantPrice}
                     colorVariants={colorVariants}
+                    brand={product.brand || product.vendor}
                   />
                 );
               })}
@@ -314,7 +299,7 @@ export default function Home() {
           <div className="text-center mt-16">
             <Link
               href="/shop"
-              className="inline-flex items-center justify-center bg-gray-900 text-white px-10 py-4 rounded-full font-medium hover:bg-emerald-800 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 btn-animate"
+              className="inline-flex items-center justify-center bg-gray-900 text-white px-10 py-4 rounded-full font-medium hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 btn-animate"
             >
               View All Products
             </Link>
@@ -328,7 +313,7 @@ export default function Home() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {features.map((feature, i) => (
               <AnimatedSection key={i} delay={i * 100} className="flex flex-col items-center text-center p-4">
-                <div className="w-16 h-16 bg-emerald-50 rounded-full flex items-center justify-center mb-4 text-emerald-700">
+                <div className="w-16 h-16 bg-gray-50 rounded-full flex items-center justify-center mb-4 text-gray-900">
                   <i className={`${feature.icon} text-3xl`}></i>
                 </div>
                 <h3 className="font-bold text-gray-900 mb-1">{feature.title}</h3>

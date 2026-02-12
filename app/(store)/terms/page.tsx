@@ -1,7 +1,7 @@
 export default function TermsPage() {
   return (
     <div className="min-h-screen bg-white">
-      <div className="bg-gradient-to-br from-emerald-50 via-white to-amber-50 py-16">
+      <div className="bg-gradient-to-br from-gray-50 via-white to-amber-50 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-5xl font-bold text-gray-900 mb-6">Terms & Conditions</h1>
@@ -79,19 +79,19 @@ export default function TermsPage() {
             </p>
             <ul className="space-y-2 text-gray-600 mb-6">
               <li className="flex items-start gap-2">
-                <i className="ri-arrow-right-s-line text-emerald-700 mt-1"></i>
+                <i className="ri-arrow-right-s-line text-gray-900 mt-1"></i>
                 <span>Modify prices at any time without notice</span>
               </li>
               <li className="flex items-start gap-2">
-                <i className="ri-arrow-right-s-line text-emerald-700 mt-1"></i>
+                <i className="ri-arrow-right-s-line text-gray-900 mt-1"></i>
                 <span>Correct pricing errors, even after an order is placed</span>
               </li>
               <li className="flex items-start gap-2">
-                <i className="ri-arrow-right-s-line text-emerald-700 mt-1"></i>
+                <i className="ri-arrow-right-s-line text-gray-900 mt-1"></i>
                 <span>Limit quantities available for purchase</span>
               </li>
               <li className="flex items-start gap-2">
-                <i className="ri-arrow-right-s-line text-emerald-700 mt-1"></i>
+                <i className="ri-arrow-right-s-line text-gray-900 mt-1"></i>
                 <span>Discontinue products at any time</span>
               </li>
             </ul>
@@ -114,19 +114,19 @@ export default function TermsPage() {
             </p>
             <ul className="space-y-2 text-gray-600 mb-6">
               <li className="flex items-start gap-2">
-                <i className="ri-arrow-right-s-line text-emerald-700 mt-1"></i>
+                <i className="ri-arrow-right-s-line text-gray-900 mt-1"></i>
                 <span>Product unavailability or pricing errors</span>
               </li>
               <li className="flex items-start gap-2">
-                <i className="ri-arrow-right-s-line text-emerald-700 mt-1"></i>
+                <i className="ri-arrow-right-s-line text-gray-900 mt-1"></i>
                 <span>Suspected fraudulent or unauthorised transactions</span>
               </li>
               <li className="flex items-start gap-2">
-                <i className="ri-arrow-right-s-line text-emerald-700 mt-1"></i>
+                <i className="ri-arrow-right-s-line text-gray-900 mt-1"></i>
                 <span>Inaccuracies in product or pricing information</span>
               </li>
               <li className="flex items-start gap-2">
-                <i className="ri-arrow-right-s-line text-emerald-700 mt-1"></i>
+                <i className="ri-arrow-right-s-line text-gray-900 mt-1"></i>
                 <span>Failure to meet age or eligibility requirements</span>
               </li>
             </ul>
@@ -138,11 +138,11 @@ export default function TermsPage() {
             <div className="bg-gray-50 p-6 rounded-xl mb-6">
               <ul className="space-y-2 text-gray-600">
                 <li className="flex items-center gap-2">
-                  <i className="ri-smartphone-line text-emerald-700"></i>
+                  <i className="ri-smartphone-line text-gray-900"></i>
                   <span>Mobile Money (MTN, Vodafone, AirtelTigo) via Moolre</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <i className="ri-bank-card-line text-emerald-700"></i>
+                  <i className="ri-bank-card-line text-gray-900"></i>
                   <span>Credit/Debit Cards (Visa, Mastercard) via Moolre</span>
                 </li>
               </ul>
@@ -203,19 +203,19 @@ export default function TermsPage() {
             </p>
             <ul className="space-y-2 text-gray-600 mb-6">
               <li className="flex items-start gap-2">
-                <i className="ri-checkbox-circle-line text-emerald-700 mt-1"></i>
+                <i className="ri-checkbox-circle-line text-gray-900 mt-1"></i>
                 <span>Does not violate any laws or third-party rights</span>
               </li>
               <li className="flex items-start gap-2">
-                <i className="ri-checkbox-circle-line text-emerald-700 mt-1"></i>
+                <i className="ri-checkbox-circle-line text-gray-900 mt-1"></i>
                 <span>Is not defamatory, offensive, or inappropriate</span>
               </li>
               <li className="flex items-start gap-2">
-                <i className="ri-checkbox-circle-line text-emerald-700 mt-1"></i>
+                <i className="ri-checkbox-circle-line text-gray-900 mt-1"></i>
                 <span>Does not contain viruses or malicious code</span>
               </li>
               <li className="flex items-start gap-2">
-                <i className="ri-checkbox-circle-line text-emerald-700 mt-1"></i>
+                <i className="ri-checkbox-circle-line text-gray-900 mt-1"></i>
                 <span>Is truthful and based on your genuine experience</span>
               </li>
             </ul>
@@ -289,23 +289,23 @@ export default function TermsPage() {
             <div className="bg-gray-50 border border-gray-200 p-8 rounded-xl">
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
-                  <i className="ri-mail-line text-emerald-700 text-xl mt-1"></i>
+                  <i className="ri-mail-line text-gray-900 text-xl mt-1"></i>
                   <div>
                     <p className="font-medium text-gray-900">Email</p>
-                    <a href="mailto:legal@premiumstore.com" className="text-emerald-700 hover:underline">legal@premiumstore.com</a>
+                    <a href="mailto:legal@premiumstore.com" className="text-gray-900 hover:underline">legal@premiumstore.com</a>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <i className="ri-phone-line text-emerald-700 text-xl mt-1"></i>
+                  <i className="ri-phone-line text-gray-900 text-xl mt-1"></i>
                   <div>
                     <p className="font-medium text-gray-900">Phone</p>
-                    <a href="tel:+233241234567" className="text-emerald-700 hover:underline">+233 24 123 4567</a>
+                    <a href="tel:+233241234567" className="text-gray-900 hover:underline">+233 24 123 4567</a>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <i className="ri-map-pin-line text-emerald-700 text-xl mt-1"></i>
+                  <i className="ri-map-pin-line text-gray-900 text-xl mt-1"></i>
                   <div>
                     <p className="font-medium text-gray-900">Address</p>
                     <p className="text-gray-600">Premium Store Ghana<br />East Legon, Accra<br />Ghana</p>
@@ -315,8 +315,8 @@ export default function TermsPage() {
             </div>
           </section>
 
-          <div className="bg-emerald-50 border-2 border-emerald-200 p-8 rounded-xl text-center">
-            <i className="ri-checkbox-circle-line text-4xl text-emerald-700 mb-4"></i>
+          <div className="bg-gray-50 border-2 border-gray-200 p-8 rounded-xl text-center">
+            <i className="ri-checkbox-circle-line text-4xl text-gray-900 mb-4"></i>
             <p className="text-gray-600 leading-relaxed">
               By using our website, you acknowledge that you have read, understood, and agree to be bound by these Terms and Conditions.
             </p>

@@ -37,7 +37,7 @@ function SectionCard({ title, description, icon, children }: { title: string; de
         <div className="bg-white rounded-xl border border-gray-200 shadow-sm">
             <div className="px-6 py-5 border-b border-gray-100">
                 <div className="flex items-center gap-3">
-                    {icon && <div className="w-10 h-10 bg-emerald-50 rounded-lg flex items-center justify-center"><i className={`${icon} text-xl text-emerald-700`}></i></div>}
+                    {icon && <div className="w-10 h-10 bg-gray-50 rounded-lg flex items-center justify-center"><i className={`${icon} text-xl text-gray-900`}></i></div>}
                     <div>
                         <h3 className="text-lg font-bold text-gray-900">{title}</h3>
                         {description && <p className="text-sm text-gray-500 mt-0.5">{description}</p>}
@@ -49,7 +49,7 @@ function SectionCard({ title, description, icon, children }: { title: string; de
     );
 }
 
-const inputClass = "w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 text-sm bg-white transition-colors";
+const inputClass = "w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-600 focus:border-gray-600 text-sm bg-white transition-colors";
 const textareaClass = `${inputClass} resize-none`;
 
 // ── Main Component ─────────────────────────────────────────────────
@@ -160,7 +160,7 @@ export default function SettingsPage() {
             <div>
                 <div className="flex items-center justify-between mb-3">
                     <label className="text-sm font-semibold text-gray-700">{label}</label>
-                    <button onClick={addLink} className="text-xs bg-emerald-50 text-emerald-700 px-3 py-1.5 rounded-lg hover:bg-emerald-100 transition-colors font-medium">
+                    <button onClick={addLink} className="text-xs bg-gray-50 text-gray-900 px-3 py-1.5 rounded-lg hover:bg-gray-100 transition-colors font-medium">
                         <i className="ri-add-line mr-1"></i> Add Link
                     </button>
                 </div>
@@ -172,14 +172,14 @@ export default function SettingsPage() {
                                 value={link.label}
                                 onChange={e => updateLink(i, 'label', e.target.value)}
                                 placeholder="Label"
-                                className="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-emerald-500"
+                                className="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-gray-600"
                             />
                             <input
                                 type="text"
                                 value={link.href}
                                 onChange={e => updateLink(i, 'href', e.target.value)}
                                 placeholder="/path"
-                                className="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-emerald-500"
+                                className="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-gray-600"
                             />
                             <button onClick={() => removeLink(i)} className="w-9 h-9 flex items-center justify-center text-red-500 hover:bg-red-50 rounded-lg transition-colors">
                                 <i className="ri-delete-bin-line"></i>
@@ -207,7 +207,7 @@ export default function SettingsPage() {
             <div>
                 <div className="flex items-center justify-between mb-3">
                     <label className="text-sm font-semibold text-gray-700">Team Contacts</label>
-                    <button onClick={addContact} className="text-xs bg-emerald-50 text-emerald-700 px-3 py-1.5 rounded-lg hover:bg-emerald-100 transition-colors font-medium">
+                    <button onClick={addContact} className="text-xs bg-gray-50 text-gray-900 px-3 py-1.5 rounded-lg hover:bg-gray-100 transition-colors font-medium">
                         <i className="ri-add-line mr-1"></i> Add Contact
                     </button>
                 </div>
@@ -260,8 +260,9 @@ export default function SettingsPage() {
                                 <FieldGroup label="Instagram"><input type="url" value={val('social_instagram')} onChange={e => set('social_instagram', e.target.value)} className={inputClass} placeholder="https://instagram.com/..." /></FieldGroup>
                                 <FieldGroup label="Twitter / X"><input type="url" value={val('social_twitter')} onChange={e => set('social_twitter', e.target.value)} className={inputClass} placeholder="https://twitter.com/..." /></FieldGroup>
                                 <FieldGroup label="TikTok"><input type="url" value={val('social_tiktok')} onChange={e => set('social_tiktok', e.target.value)} className={inputClass} placeholder="https://tiktok.com/@..." /></FieldGroup>
+                                <FieldGroup label="Snapchat"><input type="url" value={val('social_snapchat')} onChange={e => set('social_snapchat', e.target.value)} className={inputClass} placeholder="https://snapchat.com/add/..." /></FieldGroup>
                                 <FieldGroup label="YouTube"><input type="url" value={val('social_youtube')} onChange={e => set('social_youtube', e.target.value)} className={inputClass} placeholder="https://youtube.com/..." /></FieldGroup>
-                                <FieldGroup label="WhatsApp Number"><input type="text" value={val('social_whatsapp')} onChange={e => set('social_whatsapp', e.target.value)} className={inputClass} placeholder="233xxxxxxxxx" /></FieldGroup>
+                                <FieldGroup label="WhatsApp Number"><input type="text" value={val('social_whatsapp')} onChange={e => set('social_whatsapp', e.target.value)} className={inputClass} placeholder="0204292019" /></FieldGroup>
                             </div>
                         </SectionCard>
                     </div>
@@ -301,7 +302,8 @@ export default function SettingsPage() {
                             <FieldGroup label="Tag Line" description="Small text above the headline"><input type="text" value={val('hero_tag_text')} onChange={e => set('hero_tag_text', e.target.value)} className={inputClass} /></FieldGroup>
                             <FieldGroup label="Headline"><input type="text" value={val('hero_headline')} onChange={e => set('hero_headline', e.target.value)} className={inputClass} /></FieldGroup>
                             <FieldGroup label="Sub-headline"><textarea rows={2} value={val('hero_subheadline')} onChange={e => set('hero_subheadline', e.target.value)} className={textareaClass} /></FieldGroup>
-                            <ImageUpload label="Background Image" description="Hero section background (recommended: 1920×1080)" value={val('hero_image')} onChange={(url) => set('hero_image', url)} folder="homepage" previewHeight={140} />
+                            <ImageUpload label="Background Image" description="Fallback when no video (recommended: 1920×1080)" value={val('hero_image')} onChange={(url) => set('hero_image', url)} folder="homepage" previewHeight={140} />
+                            <FieldGroup label="Hero Video URL" description="MP4 or WebM URL for full-screen video hero. Leave empty to use image only."><input type="url" value={val('hero_video')} onChange={e => set('hero_video', e.target.value)} className={inputClass} placeholder="https://..." /></FieldGroup>
 
                             <div className="grid md:grid-cols-2 gap-5">
                                 <FieldGroup label="Primary Button Text"><input type="text" value={val('hero_primary_btn_text')} onChange={e => set('hero_primary_btn_text', e.target.value)} className={inputClass} /></FieldGroup>
@@ -406,7 +408,7 @@ export default function SettingsPage() {
                                             type="checkbox"
                                             checked={val(toggle.key) === 'true'}
                                             onChange={e => set(toggle.key, e.target.checked ? 'true' : 'false')}
-                                            className="w-5 h-5 text-emerald-600 bg-white border-gray-300 rounded focus:ring-emerald-500"
+                                            className="w-5 h-5 text-gray-700 bg-white border-gray-300 rounded focus:ring-gray-600"
                                         />
                                         <span className="text-sm font-medium text-gray-700">{toggle.label}</span>
                                     </label>
@@ -421,13 +423,13 @@ export default function SettingsPage() {
                                 <FieldGroup label="Footer Logo Height (px)"><input type="number" value={val('footer_logo_height')} onChange={e => set('footer_logo_height', e.target.value)} className={inputClass} /></FieldGroup>
                             </div>
 
-                            <div className="p-4 bg-emerald-50/50 rounded-lg border border-emerald-100">
+                            <div className="p-4 bg-gray-50/50 rounded-lg border border-gray-100">
                                 <label className="flex items-center gap-3 cursor-pointer mb-3">
                                     <input
                                         type="checkbox"
                                         checked={val('footer_show_newsletter') === 'true'}
                                         onChange={e => set('footer_show_newsletter', e.target.checked ? 'true' : 'false')}
-                                        className="w-5 h-5 text-emerald-600 bg-white border-gray-300 rounded focus:ring-emerald-500"
+                                        className="w-5 h-5 text-gray-700 bg-white border-gray-300 rounded focus:ring-gray-600"
                                     />
                                     <span className="text-sm font-semibold text-gray-700">Show Newsletter Section</span>
                                 </label>
@@ -532,7 +534,7 @@ export default function SettingsPage() {
         return (
             <div className="min-h-[60vh] flex items-center justify-center">
                 <div className="text-center">
-                    <div className="w-12 h-12 border-4 border-emerald-200 border-t-emerald-700 rounded-full animate-spin mx-auto mb-4"></div>
+                    <div className="w-12 h-12 border-4 border-gray-200 border-t-gray-900 rounded-full animate-spin mx-auto mb-4"></div>
                     <p className="text-gray-500">Loading settings...</p>
                 </div>
             </div>
@@ -552,8 +554,8 @@ export default function SettingsPage() {
                         onClick={handleSave}
                         disabled={saving}
                         className={`inline-flex items-center gap-2 px-6 py-2.5 rounded-lg font-medium text-sm transition-all shadow-sm ${saved
-                            ? 'bg-emerald-100 text-emerald-700 border border-emerald-200'
-                            : 'bg-emerald-700 text-white hover:bg-emerald-800 active:scale-95'
+                            ? 'bg-gray-100 text-gray-900 border border-gray-200'
+                            : 'bg-gray-900 text-white hover:bg-gray-800 active:scale-95'
                             } disabled:opacity-50`}
                     >
                         {saving ? (
@@ -575,7 +577,7 @@ export default function SettingsPage() {
                                     key={tab.id}
                                     onClick={() => setActiveTab(tab.id)}
                                     className={`w-full flex items-center gap-3 px-4 py-3.5 text-sm font-medium transition-colors text-left ${activeTab === tab.id
-                                        ? 'bg-emerald-50 text-emerald-700 border-l-4 border-emerald-700'
+                                        ? 'bg-gray-50 text-gray-900 border-l-4 border-gray-900'
                                         : 'text-gray-600 hover:bg-gray-50 border-l-4 border-transparent'
                                         }`}
                                 >
@@ -594,7 +596,7 @@ export default function SettingsPage() {
                                     key={tab.id}
                                     onClick={() => setActiveTab(tab.id)}
                                     className={`flex flex-col items-center gap-0.5 px-3 py-2 rounded-lg text-xs font-medium whitespace-nowrap transition-colors ${activeTab === tab.id
-                                        ? 'bg-emerald-50 text-emerald-700'
+                                        ? 'bg-gray-50 text-gray-900'
                                         : 'text-gray-500'
                                         }`}
                                 >

@@ -116,10 +116,10 @@ export default function ImageUpload({
             {/* Preview + Upload Area */}
             <div
                 className={`relative border-2 border-dashed rounded-xl transition-all ${dragOver
-                        ? 'border-emerald-500 bg-emerald-50'
+                        ? 'border-gray-600 bg-gray-50'
                         : hasImage
                             ? 'border-gray-200 bg-gray-50'
-                            : 'border-gray-300 bg-white hover:border-emerald-400 hover:bg-emerald-50/30'
+                            : 'border-gray-300 bg-white hover:border-gray-400 hover:bg-gray-50/30'
                     }`}
                 onDragOver={(e) => { e.preventDefault(); setDragOver(true); }}
                 onDragLeave={() => setDragOver(false)}
@@ -152,7 +152,7 @@ export default function ImageUpload({
                                         type="button"
                                         onClick={() => fileInputRef.current?.click()}
                                         disabled={uploading}
-                                        className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-emerald-700 bg-emerald-50 hover:bg-emerald-100 rounded-lg transition-colors"
+                                        className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-gray-900 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors"
                                     >
                                         <i className="ri-upload-2-line"></i>
                                         Replace
@@ -179,8 +179,8 @@ export default function ImageUpload({
                     >
                         {uploading ? (
                             <div className="flex flex-col items-center gap-2">
-                                <div className="w-10 h-10 border-3 border-emerald-200 border-t-emerald-600 rounded-full animate-spin"></div>
-                                <p className="text-sm text-emerald-700 font-medium">Uploading...</p>
+                                <div className="w-10 h-10 border-3 border-gray-200 border-t-gray-700 rounded-full animate-spin"></div>
+                                <p className="text-sm text-gray-900 font-medium">Uploading...</p>
                             </div>
                         ) : (
                             <div className="flex flex-col items-center gap-2">
@@ -204,8 +204,8 @@ export default function ImageUpload({
                 {uploading && hasImage && (
                     <div className="absolute inset-0 bg-white/80 rounded-xl flex items-center justify-center">
                         <div className="flex items-center gap-3">
-                            <div className="w-8 h-8 border-3 border-emerald-200 border-t-emerald-600 rounded-full animate-spin"></div>
-                            <span className="text-sm font-medium text-emerald-700">Uploading...</span>
+                            <div className="w-8 h-8 border-3 border-gray-200 border-t-gray-700 rounded-full animate-spin"></div>
+                            <span className="text-sm font-medium text-gray-900">Uploading...</span>
                         </div>
                     </div>
                 )}
@@ -218,7 +218,7 @@ export default function ImageUpload({
                     value={value}
                     onChange={(e) => onChange(e.target.value)}
                     placeholder="Or paste an image URL..."
-                    className="flex-1 px-3 py-2 border border-gray-200 rounded-lg text-xs text-gray-600 focus:ring-1 focus:ring-emerald-500 focus:border-emerald-500 bg-gray-50"
+                    className="flex-1 px-3 py-2 border border-gray-200 rounded-lg text-xs text-gray-600 focus:ring-1 focus:ring-gray-600 focus:border-gray-600 bg-gray-50"
                 />
             </div>
 

@@ -41,8 +41,8 @@ export default function UpdatePrompt() {
   return (
     <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-[9999] bg-white rounded-xl shadow-2xl p-6 border border-gray-200 animate-slide-up max-w-md w-full mx-4">
       <div className="flex items-start gap-4">
-        <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center flex-shrink-0">
-          <i className="ri-download-cloud-line text-2xl text-green-700"></i>
+        <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center flex-shrink-0">
+          <i className="ri-download-cloud-line text-2xl text-gray-800"></i>
         </div>
         <div className="flex-1">
           <h3 className="font-bold text-gray-900 mb-2">Update Available! 🎉</h3>
@@ -52,7 +52,7 @@ export default function UpdatePrompt() {
           <div className="flex gap-3">
             <button
               onClick={handleUpdate}
-              className="flex-1 bg-green-700 hover:bg-green-800 text-white py-2 px-4 rounded-lg font-medium transition-colors whitespace-nowrap"
+              className="flex-1 bg-gray-800 hover:bg-gray-800 text-white py-2 px-4 rounded-lg font-medium transition-colors whitespace-nowrap"
             >
               Update Now
             </button>

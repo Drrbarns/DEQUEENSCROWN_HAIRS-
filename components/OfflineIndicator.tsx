@@ -34,7 +34,7 @@ export default function OfflineIndicator() {
   return (
     <div className={`fixed top-20 left-1/2 -translate-x-1/2 z-[9999] px-6 py-3 rounded-full shadow-lg flex items-center gap-3 animate-slide-down ${
       isOnline 
-        ? 'bg-green-600 text-white' 
+        ? 'bg-gray-900 text-white' 
         : 'bg-red-600 text-white'
     }`}>
       <i className={`text-xl ${isOnline ? 'ri-wifi-line' : 'ri-wifi-off-line'}`}></i>

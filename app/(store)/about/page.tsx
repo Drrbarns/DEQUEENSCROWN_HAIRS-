@@ -12,7 +12,7 @@ export default function AboutPage() {
   const [activeTab, setActiveTab] = useState('story');
 
   const siteName = getSetting('site_name') || 'Our Store';
-  const primaryColor = getSetting('primary_color') || '#059669';
+  const primaryColor = getSetting('primary_color') || '#000000';
 
   // CMS-driven content
   const heroTitle = getSetting('about_hero_title') || 'Our Story';
@@ -69,7 +69,7 @@ export default function AboutPage() {
           <button
             onClick={() => setActiveTab('story')}
             className={`px-8 py-4 font-medium transition-colors text-lg cursor-pointer ${activeTab === 'story'
-              ? 'text-emerald-700 border-b-4 border-emerald-700 font-bold'
+              ? 'text-gray-900 border-b-4 border-gray-900 font-bold'
               : 'text-gray-500 hover:text-gray-700'
               }`}
           >
@@ -78,7 +78,7 @@ export default function AboutPage() {
           <button
             onClick={() => setActiveTab('mission')}
             className={`px-8 py-4 font-medium transition-colors text-lg cursor-pointer ${activeTab === 'mission'
-              ? 'text-emerald-700 border-b-4 border-emerald-700 font-bold'
+              ? 'text-gray-900 border-b-4 border-gray-900 font-bold'
               : 'text-gray-500 hover:text-gray-700'
               }`}
           >
@@ -114,22 +114,23 @@ export default function AboutPage() {
                   src={storyImage}
                   alt={`${founderName} - ${founderTitle}`}
                   className="w-full h-full object-cover"
+                  onError={(e) => { const t = e.currentTarget; if (t.src !== '/about.jpg') t.src = '/about.jpg'; }}
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-8">
                   <p className="text-white font-bold text-xl">{founderName}</p>
-                  <p className="text-emerald-200">{founderTitle}</p>
+                  <p className="text-gray-200">{founderTitle}</p>
                 </div>
               </div>
               {/* Decorative Element */}
-              <div className="absolute -z-10 top-10 -right-10 w-full h-full border-4 border-emerald-100 rounded-2xl hidden md:block"></div>
+              <div className="absolute -z-10 top-10 -right-10 w-full h-full border-4 border-gray-100 rounded-2xl hidden md:block"></div>
             </div>
           </div>
         )}
 
         {activeTab === 'mission' && (
           <div className="grid md:grid-cols-2 gap-12 animate-in fade-in slide-in-from-bottom-4 duration-500">
-            <div className="bg-emerald-50 p-10 rounded-3xl border border-emerald-100">
-              <div className="w-16 h-16 bg-emerald-700 rounded-2xl flex items-center justify-center mb-8 shadow-lg">
+            <div className="bg-gray-50 p-10 rounded-3xl border border-gray-100">
+              <div className="w-16 h-16 bg-gray-900 rounded-2xl flex items-center justify-center mb-8 shadow-lg">
                 <i className="ri-plane-line text-3xl text-white"></i>
               </div>
               <h3 className="text-3xl font-bold text-gray-900 mb-4">{mission1Title}</h3>
@@ -160,8 +161,8 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, index) => (
               <div key={index} className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                <div className="w-14 h-14 bg-emerald-100 rounded-full flex items-center justify-center mb-6">
-                  <i className={`${value.icon} text-2xl text-emerald-700`}></i>
+                <div className="w-14 h-14 bg-gray-100 rounded-full flex items-center justify-center mb-6">
+                  <i className={`${value.icon} text-2xl text-gray-900`}></i>
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">{value.title}</h3>
                 <p className="text-gray-600 leading-relaxed">{value.description}</p>
@@ -172,15 +173,15 @@ export default function AboutPage() {
       </div>
 
       {/* CTA */}
-      <div className="bg-emerald-900 py-24">
+      <div className="bg-gray-900 py-24">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
           <h2 className="text-4xl md:text-5xl font-bold mb-8">{ctaTitle}</h2>
-          <p className="text-xl text-emerald-100 mb-10 leading-relaxed max-w-2xl mx-auto">
+          <p className="text-xl text-gray-100 mb-10 leading-relaxed max-w-2xl mx-auto">
             {ctaSubtitle}
           </p>
           <Link
             href="/shop"
-            className="inline-flex items-center gap-3 bg-white text-emerald-900 px-10 py-5 rounded-full font-bold text-lg hover:bg-emerald-50 transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all"
+            className="inline-flex items-center gap-3 bg-white text-gray-900 px-10 py-5 rounded-full font-bold text-lg hover:bg-gray-50 transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all"
           >
             Start Shopping
             <i className="ri-arrow-right-line"></i>

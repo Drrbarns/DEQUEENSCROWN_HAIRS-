@@ -48,7 +48,7 @@ export default function SocialShareButtons({ url, title, description, image }: S
     <div className="relative">
       <button
         onClick={() => setShowShareMenu(!showShareMenu)}
-        className="flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-lg hover:border-emerald-500 hover:bg-emerald-50 transition-colors"
+        className="flex items-center gap-2 px-4 py-2 bg-white border border-gray-200 rounded-lg hover:border-gray-600 hover:bg-gray-50 transition-colors"
       >
         <i className="ri-share-line text-lg"></i>
         <span className="font-medium">Share</span>
@@ -98,9 +98,9 @@ export default function SocialShareButtons({ url, title, description, image }: S
 
               <button
                 onClick={() => handleShare('whatsapp')}
-                className="flex flex-col items-center gap-2 p-3 rounded-lg hover:bg-green-50 transition-colors group"
+                className="flex flex-col items-center gap-2 p-3 rounded-lg hover:bg-gray-50 transition-colors group"
               >
-                <div className="w-12 h-12 flex items-center justify-center bg-green-500 text-white rounded-full group-hover:scale-110 transition-transform">
+                <div className="w-12 h-12 flex items-center justify-center bg-gray-600 text-white rounded-full group-hover:scale-110 transition-transform">
                   <i className="ri-whatsapp-fill text-xl"></i>
                 </div>
                 <span className="text-xs text-gray-600">WhatsApp</span>
@@ -157,7 +157,7 @@ export default function SocialShareButtons({ url, title, description, image }: S
                 />
                 <button
                   onClick={handleCopyLink}
-                  className="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors whitespace-nowrap"
+                  className="px-4 py-2 bg-gray-700 hover:bg-gray-900 text-white rounded-lg font-medium transition-colors whitespace-nowrap"
                 >
                   {copied ? (
                     <>

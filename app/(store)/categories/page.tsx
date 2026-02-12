@@ -20,7 +20,7 @@ export default async function CategoriesPage() {
 
   // Palette to cycle through for visual variety since DB doesn't have colors
   const palette = [
-    { color: 'from-emerald-500 to-emerald-700', icon: 'ri-store-2-line' },
+    { color: 'from-gray-600 to-gray-900', icon: 'ri-store-2-line' },
     { color: 'from-blue-500 to-blue-700', icon: 'ri-shopping-bag-3-line' },
     { color: 'from-purple-500 to-purple-700', icon: 'ri-t-shirt-line' },
     { color: 'from-amber-500 to-amber-700', icon: 'ri-home-smile-line' },
@@ -77,7 +77,7 @@ export default async function CategoriesPage() {
                   <p className="text-gray-600 leading-relaxed text-sm mb-4 line-clamp-2">
                     {category.description || 'Explore our exclusive collection in this category.'}
                   </p>
-                  <div className="flex items-center text-emerald-700 font-medium text-sm group-hover:gap-2 transition-all">
+                  <div className="flex items-center text-gray-900 font-medium text-sm group-hover:gap-2 transition-all">
                     <span>Browse Collection</span>
                     <i className="ri-arrow-right-line ml-2"></i>
                   </div>
@@ -93,23 +93,23 @@ export default async function CategoriesPage() {
         )}
       </div>
 
-      <div className="bg-gradient-to-br from-emerald-700 to-emerald-900 py-16">
+      <div className="bg-gradient-to-br from-gray-900 to-gray-900 py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold text-white mb-4">Can't Find What You're Looking For?</h2>
-          <p className="text-xl text-emerald-100 mb-8 leading-relaxed">
+          <p className="text-xl text-gray-100 mb-8 leading-relaxed">
             Try our advanced search or contact our team for personalised product recommendations
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link
               href="/shop"
-              className="inline-flex items-center gap-2 bg-white text-emerald-700 px-8 py-4 rounded-full font-medium hover:bg-emerald-50 transition-colors whitespace-nowrap"
+              className="inline-flex items-center gap-2 bg-white text-gray-900 px-8 py-4 rounded-full font-medium hover:bg-gray-50 transition-colors whitespace-nowrap"
             >
               <i className="ri-search-line"></i>
               Search All Products
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 bg-emerald-600 text-white px-8 py-4 rounded-full font-medium hover:bg-emerald-500 transition-colors whitespace-nowrap"
+              className="inline-flex items-center gap-2 bg-gray-700 text-white px-8 py-4 rounded-full font-medium hover:bg-gray-600 transition-colors whitespace-nowrap"
             >
               <i className="ri-customer-service-line"></i>
               Contact Support

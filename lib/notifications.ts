@@ -8,9 +8,9 @@ const EMAIL_FROM = process.env.EMAIL_FROM || `${STORE_NAME} <noreply@store.com>`
 const SMS_SENDER_ID = process.env.SMS_SENDER_ID || 'MyStore';
 const BRAND = {
     name: STORE_NAME,
-    color: '#047857',
-    colorLight: '#ecfdf5',
-    colorDark: '#064e3b',
+    color: '#374151',
+    colorLight: '#f3f4f6',
+    colorDark: '#171717',
     url: (process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000').replace(/\/+$/, ''),
     phone: process.env.STORE_PHONE || '',
 };
@@ -356,7 +356,7 @@ export async function sendOrderStatusUpdate(order: any, newStatus: string) {
     // Status icons/colors
     const statusConfig: Record<string, { icon: string; color: string; bg: string }> = {
         processing: { icon: '&#9881;', color: '#2563eb', bg: '#eff6ff' },
-        shipped: { icon: '&#128666;', color: '#047857', bg: '#ecfdf5' },
+        shipped: { icon: '&#128666;', color: '#374151', bg: '#f3f4f6' },
         delivered: { icon: '&#127881;', color: '#16a34a', bg: '#f0fdf4' },
         cancelled: { icon: '&#10060;', color: '#dc2626', bg: '#fef2f2' },
     };

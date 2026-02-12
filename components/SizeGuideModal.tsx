@@ -130,7 +130,7 @@ export default function SizeGuideModal({ isOpen, onClose, category = 'General' }
               <div className="bg-gray-50 rounded-lg p-4">
                 <h4 className="font-semibold text-gray-900 mb-3 flex items-center">
                   <div className="w-6 h-6 flex items-center justify-center mr-2">
-                    <i className="ri-ruler-line text-emerald-700"></i>
+                    <i className="ri-ruler-line text-gray-900"></i>
                   </div>
                   Measurement Tips
                 </h4>
@@ -145,7 +145,7 @@ export default function SizeGuideModal({ isOpen, onClose, category = 'General' }
               <div className="bg-gray-50 rounded-lg p-4">
                 <h4 className="font-semibold text-gray-900 mb-3 flex items-center">
                   <div className="w-6 h-6 flex items-center justify-center mr-2">
-                    <i className="ri-question-line text-emerald-700"></i>
+                    <i className="ri-question-line text-gray-900"></i>
                   </div>
                   Fit Guide
                 </h4>
@@ -162,7 +162,7 @@ export default function SizeGuideModal({ isOpen, onClose, category = 'General' }
               <p className="text-sm text-gray-600 mb-4">
                 Still not sure about sizing? Our customer service team is here to help!
               </p>
-              <button className="px-6 py-3 bg-emerald-700 text-white rounded-lg font-semibold hover:bg-emerald-800 transition-colors whitespace-nowrap">
+              <button className="px-6 py-3 bg-gray-900 text-white rounded-lg font-semibold hover:bg-gray-800 transition-colors whitespace-nowrap">
                 Contact Support
               </button>
             </div>

@@ -1060,6 +1060,7 @@ INSERT INTO storage.buckets (id, name, public) VALUES ('avatars', 'avatars', tru
 INSERT INTO storage.buckets (id, name, public) VALUES ('blog', 'blog', true);
 INSERT INTO storage.buckets (id, name, public) VALUES ('media', 'media', true);
 INSERT INTO storage.buckets (id, name, public) VALUES ('reviews', 'reviews', true);
+INSERT INTO storage.buckets (id, name, public) VALUES ('site-assets', 'site-assets', true);
 
 -- ============================================================================
 -- 11. STORAGE POLICIES
@@ -1075,3 +1076,9 @@ CREATE POLICY "Admin delete access for products" ON storage.objects FOR DELETE U
 CREATE POLICY "Public read access for media" ON storage.objects FOR SELECT USING (bucket_id = 'media');
 CREATE POLICY "Admin upload access for media" ON storage.objects FOR INSERT WITH CHECK (bucket_id = 'media' AND is_admin_or_staff() = true);
 CREATE POLICY "Admin delete access for media" ON storage.objects FOR DELETE USING (bucket_id = 'media' AND is_admin_or_staff() = true);
+
+-- Site-assets bucket (logo, favicon, hero image, etc.)
+CREATE POLICY "Public read access for site-assets" ON storage.objects FOR SELECT USING (bucket_id = 'site-assets');
+CREATE POLICY "Admin upload access for site-assets" ON storage.objects FOR INSERT WITH CHECK (bucket_id = 'site-assets' AND (auth.role() = 'service_role' OR is_admin_or_staff() = true));
+CREATE POLICY "Admin update access for site-assets" ON storage.objects FOR UPDATE USING (bucket_id = 'site-assets' AND (auth.role() = 'service_role' OR is_admin_or_staff() = true));
+CREATE POLICY "Admin delete access for site-assets" ON storage.objects FOR DELETE USING (bucket_id = 'site-assets' AND (auth.role() = 'service_role' OR is_admin_or_staff() = true));

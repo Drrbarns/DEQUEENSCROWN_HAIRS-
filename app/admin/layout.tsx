@@ -22,6 +22,7 @@ export default function AdminLayout({
   // Module Filtering State
   const [enabledModules, setEnabledModules] = useState<string[]>([]);
   const [storeName, setStoreName] = useState('My Store');
+  const [storeLogo, setStoreLogo] = useState<string | null>(null);
 
   useEffect(() => {
     async function checkAuth() {
@@ -97,9 +98,14 @@ export default function AdminLayout({
     }
     fetchModules();
 
-    // Fetch store name
-    supabase.from('store_settings').select('value').eq('key', 'site_name').single()
-      .then(({ data }) => { if (data?.value) setStoreName(typeof data.value === 'string' ? data.value : String(data.value)); });
+    // Fetch store name and logo
+    supabase.from('store_settings').select('key, value').in('key', ['site_name', 'site_logo']).then(({ data }) => {
+      data?.forEach((row: { key: string; value: unknown }) => {
+        const v = row.value != null ? String(row.value) : '';
+        if (row.key === 'site_name' && v) setStoreName(v);
+        if (row.key === 'site_logo' && v) setStoreLogo(v);
+      });
+    });
   }, []);
 
   // Screen size check for initial state
@@ -250,9 +256,17 @@ export default function AdminLayout({
         `}
       >
         <div className="h-full px-4 py-6 overflow-y-auto">
-          <Link href="/admin" className="flex items-center mb-8 px-2 cursor-pointer">
-            <span className="text-xl font-bold text-gray-900">{storeName}</span>
-            <span className="ml-3 text-sm font-semibold text-gray-500">ADMIN</span>
+          <Link href="/admin" className="flex items-center gap-3 mb-8 px-2 cursor-pointer">
+            {storeLogo ? (
+              <img
+                src={storeLogo}
+                alt={storeName}
+                className="h-9 w-auto object-contain max-w-[140px]"
+                onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.nextElementSibling?.classList.remove('hidden'); }}
+              />
+            ) : null}
+            <span className={`text-xl font-bold text-gray-900 ${storeLogo ? 'hidden' : ''}`}>{storeName}</span>
+            <span className="text-sm font-semibold text-gray-500 shrink-0">ADMIN</span>
           </Link>
 
           <nav className="space-y-1">

@@ -178,9 +178,9 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Optional floating badge */}
+        {/* Optional floating badge (desktop only) */}
         {heroBadgeLabel && (
-          <div className="absolute bottom-8 left-4 sm:left-8 lg:left-12 z-10 bg-white/95 backdrop-blur rounded-2xl p-4 sm:p-5 shadow-xl max-w-[220px] animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+          <div className="hidden md:block absolute bottom-8 left-4 sm:left-8 lg:left-12 z-10 bg-white/95 backdrop-blur rounded-2xl p-4 sm:p-5 shadow-xl max-w-[220px] animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
             <p className="font-serif text-gray-800 text-sm italic mb-0.5">{heroBadgeLabel}</p>
             <p className="text-2xl font-bold text-gray-900">{heroBadgeText}</p>
             <p className="text-sm text-gray-600">{heroBadgeSubtext}</p>

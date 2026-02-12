@@ -109,7 +109,7 @@ export default function AboutPage() {
               </div>
             </div>
             <div className="relative">
-              <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl bg-gray-100 relative">
+              <div className="aspect-[4/3] max-h-[420px] rounded-2xl overflow-hidden shadow-2xl bg-gray-100 relative">
                 <img
                   src={storyImage}
                   alt={`${founderName} - ${founderTitle}`}

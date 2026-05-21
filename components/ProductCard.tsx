@@ -95,37 +95,37 @@ export default function ProductCard({
           className="w-full h-full object-cover object-top group-hover:scale-[1.02] transition-transform duration-500"
         />
         {badge && (
-          <span className="absolute top-3 left-3 bg-white/90 text-gray-900 text-[10px] uppercase tracking-wider font-semibold px-2.5 py-1">
+          <span className="absolute top-2 left-2 sm:top-3 sm:left-3 bg-white/90 text-gray-900 text-[8px] sm:text-[10px] uppercase tracking-wider font-semibold px-1.5 sm:px-2.5 py-0.5 sm:py-1">
             {badge}
           </span>
         )}
         {discount > 0 && (
-          <span className="absolute top-3 left-3 bg-red-50 text-red-700 text-[10px] uppercase tracking-wider font-semibold px-2.5 py-1">
+          <span className="absolute top-2 left-2 sm:top-3 sm:left-3 bg-red-50 text-red-700 text-[8px] sm:text-[10px] uppercase tracking-wider font-semibold px-1.5 sm:px-2.5 py-0.5 sm:py-1">
             -{discount}%
           </span>
         )}
         {!inStock && (
           <div className="absolute inset-0 bg-white/70 flex items-center justify-center">
-            <span className="text-gray-900 text-sm font-medium">Out of Stock</span>
+            <span className="text-gray-900 text-xs sm:text-sm font-medium">Out of Stock</span>
           </div>
         )}
       </Link>
 
-      {/* Product info: left-aligned, serif name/brand, bold price */}
-      <div className="flex flex-col flex-grow pt-4 pb-2 text-left">
+      {/* Product info */}
+      <div className="flex flex-col flex-grow pt-2 sm:pt-4 pb-1 sm:pb-2 text-left">
         <Link href={`/product/${slug}`} className="mb-0.5">
-          <h3 className="font-serif text-[1.05rem] leading-snug text-black font-medium line-clamp-2 group-hover:underline">
+          <h3 className="font-serif text-xs sm:text-[1.05rem] leading-snug text-black font-medium line-clamp-2 group-hover:underline">
             {name}
           </h3>
         </Link>
         {brand && (
-          <p className="font-serif text-sm text-black/80 font-normal mb-1.5">
+          <p className="font-serif text-[10px] sm:text-sm text-black/80 font-normal mb-1 sm:mb-1.5">
             {brand}
           </p>
         )}
 
         {colorVariants.length > 0 && (
-          <div className="flex items-center gap-1.5 mb-2">
+          <div className="flex items-center gap-1 sm:gap-1.5 mb-1.5 sm:mb-2">
             {colorVariants.slice(0, MAX_SWATCHES).map((color) => (
               <button
                 key={color.name}
@@ -134,7 +134,7 @@ export default function ProductCard({
                   e.preventDefault();
                   setActiveColor(activeColor === color.name ? null : color.name);
                 }}
-                className={`w-4 h-4 rounded-full border transition-all duration-200 flex-shrink-0 ${
+                className={`w-3 h-3 sm:w-4 sm:h-4 rounded-full border transition-all duration-200 flex-shrink-0 ${
                   activeColor === color.name
                     ? 'ring-2 ring-offset-1 ring-black'
                     : 'hover:scale-110'
@@ -143,27 +143,26 @@ export default function ProductCard({
               />
             ))}
             {colorVariants.length > MAX_SWATCHES && (
-              <span className="text-xs text-gray-400 ml-0.5">+{colorVariants.length - MAX_SWATCHES}</span>
+              <span className="text-[10px] sm:text-xs text-gray-400 ml-0.5">+{colorVariants.length - MAX_SWATCHES}</span>
             )}
           </div>
         )}
 
-        <div className="mb-3">
+        <div className="mb-2 sm:mb-3">
           {hasVariants && minVariantPrice != null ? (
-            <span className="font-sans text-xl font-bold text-black">From {formatPrice(minVariantPrice)}</span>
+            <span className="font-sans text-sm sm:text-xl font-bold text-black">From {formatPrice(minVariantPrice)}</span>
           ) : (
-            <span className="font-sans text-xl font-bold text-black">{formatPrice(price)}</span>
+            <span className="font-sans text-sm sm:text-xl font-bold text-black">{formatPrice(price)}</span>
           )}
           {originalPrice && originalPrice > price && (
-            <span className="font-sans text-sm text-gray-500 line-through ml-2">{formatPrice(originalPrice)}</span>
+            <span className="font-sans text-[10px] sm:text-sm text-gray-500 line-through ml-1 sm:ml-2">{formatPrice(originalPrice)}</span>
           )}
         </div>
 
-        {/* Add to cart: full width, thin black border, transparent bg */}
         {hasVariants ? (
           <Link
             href={`/product/${slug}`}
-            className="w-full border border-black py-3 px-4 text-center text-black font-medium text-sm hover:bg-black hover:text-white transition-colors"
+            className="w-full border border-black py-2 sm:py-3 px-2 sm:px-4 text-center text-black font-medium text-[11px] sm:text-sm hover:bg-black hover:text-white transition-colors"
           >
             Select Options
           </Link>
@@ -175,7 +174,7 @@ export default function ProductCard({
               addToCart({ id, name, price, image, quantity: moq, slug, maxStock, moq });
             }}
             disabled={!inStock}
-            className="w-full border border-black py-3 px-4 text-center text-black font-medium text-sm hover:bg-black hover:text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full border border-black py-2 sm:py-3 px-2 sm:px-4 text-center text-black font-medium text-[11px] sm:text-sm hover:bg-black hover:text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
             Add to cart
           </button>

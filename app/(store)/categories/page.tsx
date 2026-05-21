@@ -49,14 +49,14 @@ export default async function CategoriesPage() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {categories.length > 0 ? (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-8">
             {categories.map((category) => (
               <Link
                 key={category.id}
                 href={`/shop?category=${category.slug}`}
-                className="group bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-2xl transition-all cursor-pointer"
+                className="group bg-white border border-gray-200 rounded-xl sm:rounded-2xl overflow-hidden hover:shadow-2xl transition-all cursor-pointer"
               >
-                <div className="relative h-48 overflow-hidden">
+                <div className="relative h-28 sm:h-48 overflow-hidden">
                   <img
                     src={category.image}
                     alt={category.name}
@@ -64,22 +64,22 @@ export default async function CategoriesPage() {
                   />
                   <div className={`absolute inset-0 bg-gradient-to-t ${category.color} opacity-0 group-hover:opacity-20 transition-opacity`}></div>
                 </div>
-                <div className="p-6">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className={`w-12 h-12 bg-gradient-to-br ${category.color} rounded-full flex items-center justify-center`}>
-                      <i className={`${category.icon} text-2xl text-white`}></i>
+                <div className="p-3 sm:p-6">
+                  <div className="flex items-center gap-2 sm:gap-3 mb-1.5 sm:mb-3">
+                    <div className={`w-8 h-8 sm:w-12 sm:h-12 bg-gradient-to-br ${category.color} rounded-full flex items-center justify-center flex-shrink-0`}>
+                      <i className={`${category.icon} text-base sm:text-2xl text-white`}></i>
                     </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-gray-900">{category.name}</h3>
-                      <p className="text-sm text-gray-500">Collection</p>
+                    <div className="min-w-0">
+                      <h3 className="text-sm sm:text-xl font-bold text-gray-900 truncate">{category.name}</h3>
+                      <p className="text-xs sm:text-sm text-gray-500 hidden sm:block">Collection</p>
                     </div>
                   </div>
-                  <p className="text-gray-600 leading-relaxed text-sm mb-4 line-clamp-2">
+                  <p className="text-gray-600 leading-relaxed text-xs sm:text-sm mb-2 sm:mb-4 line-clamp-2 hidden sm:block">
                     {category.description || 'Explore our exclusive collection in this category.'}
                   </p>
-                  <div className="flex items-center text-gray-900 font-medium text-sm group-hover:gap-2 transition-all">
-                    <span>Browse Collection</span>
-                    <i className="ri-arrow-right-line ml-2"></i>
+                  <div className="flex items-center text-gray-900 font-medium text-xs sm:text-sm group-hover:gap-2 transition-all">
+                    <span>Browse</span>
+                    <i className="ri-arrow-right-line ml-1 sm:ml-2"></i>
                   </div>
                 </div>
               </Link>

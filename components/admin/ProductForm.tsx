@@ -234,32 +234,58 @@ export default function ProductForm({ initialData, isEditMode = false }: Product
         }
     }, [isEditMode]); // eslint-disable-line react-hooks/exhaustive-deps
 
+    const [uploadProgress, setUploadProgress] = useState('');
+
     const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
         try {
             if (!e.target.files || e.target.files.length === 0) return;
 
+            const files = Array.from(e.target.files);
+            const remaining = 10 - images.length;
+            const filesToUpload = files.slice(0, remaining);
+
+            if (filesToUpload.length === 0) {
+                alert('Maximum 10 images allowed.');
+                return;
+            }
+
             setUploading(true);
-            const file = e.target.files[0];
-            const fileExt = file.name.split('.').pop();
-            const fileName = `${Math.random()}.${fileExt}`;
-            const filePath = `${fileName}`;
+            const newImages: any[] = [];
 
-            const { error: uploadError } = await supabase.storage
-                .from('products')
-                .upload(filePath, file);
+            for (let i = 0; i < filesToUpload.length; i++) {
+                const file = filesToUpload[i];
+                setUploadProgress(`Uploading ${i + 1} of ${filesToUpload.length}...`);
 
-            if (uploadError) throw uploadError;
+                const fileExt = file.name.split('.').pop();
+                const fileName = `${Math.random()}.${fileExt}`;
+                const filePath = `${fileName}`;
 
-            const { data: { publicUrl } } = supabase.storage
-                .from('products')
-                .getPublicUrl(filePath);
+                const { error: uploadError } = await supabase.storage
+                    .from('products')
+                    .upload(filePath, file);
 
-            setImages([...images, { url: publicUrl, position: images.length }]);
+                if (uploadError) {
+                    console.error(`Failed to upload ${file.name}:`, uploadError.message);
+                    continue;
+                }
 
+                const { data: { publicUrl } } = supabase.storage
+                    .from('products')
+                    .getPublicUrl(filePath);
+
+                newImages.push({ url: publicUrl, position: images.length + newImages.length });
+            }
+
+            if (newImages.length > 0) {
+                setImages(prev => [...prev, ...newImages]);
+            }
+
+            e.target.value = '';
         } catch (error: any) {
-            alert('Error uploading image: ' + error.message);
+            alert('Error uploading images: ' + error.message);
         } finally {
             setUploading(false);
+            setUploadProgress('');
         }
     };
 
@@ -990,14 +1016,21 @@ export default function ProductForm({ initialData, isEditMode = false }: Product
 
                                 <label className={`aspect-square border-2 border-dashed border-gray-300 rounded-xl hover:border-gray-900 hover:bg-gray-50 transition-colors flex flex-col items-center justify-center space-y-2 text-gray-600 hover:text-gray-900 cursor-pointer ${uploading ? 'opacity-50 cursor-not-allowed' : ''}`}>
                                     {uploading ? (
-                                        <i className="ri-loader-4-line animate-spin text-3xl"></i>
+                                        <>
+                                            <i className="ri-loader-4-line animate-spin text-3xl"></i>
+                                            <span className="text-xs font-semibold text-center px-2">{uploadProgress || 'Uploading...'}</span>
+                                        </>
                                     ) : (
-                                        <i className="ri-upload-2-line text-3xl"></i>
+                                        <>
+                                            <i className="ri-upload-2-line text-3xl"></i>
+                                            <span className="text-sm font-semibold text-center px-2">Upload Images</span>
+                                            <span className="text-xs text-gray-400">Select multiple</span>
+                                        </>
                                     )}
-                                    <span className="text-sm font-semibold">{uploading ? 'Uploading...' : 'Upload Image'}</span>
                                     <input
                                         type="file"
                                         accept="image/*"
+                                        multiple
                                         className="hidden"
                                         onChange={handleImageUpload}
                                         disabled={uploading}

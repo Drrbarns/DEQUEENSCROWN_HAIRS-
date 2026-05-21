@@ -49,7 +49,7 @@ export async function POST(req: Request) {
     const reference = `${orderId}-R${Date.now()}`;
 
     const payload = {
-      email: customerEmail || 'customer@example.com',
+      email: customerEmail || 'dequeenscrownhair@gmail.com',
       amount: amountInPesewas,
       currency: 'GHS',
       reference,

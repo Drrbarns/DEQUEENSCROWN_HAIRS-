@@ -7,6 +7,8 @@ export default function Footer() {
   const { getSetting } = useCMS();
 
   const siteName = getSetting('site_name') || 'De Queen\'s Crown Hairs';
+  const footerLogo = getSetting('footer_logo') || getSetting('site_logo') || '/logo.png';
+  const footerLogoHeight = getSetting('footer_logo_height') || '56';
   const contactEmail = getSetting('contact_email') || '';
   const contactPhone = getSetting('contact_phone') || '';
   const socialInstagram = getSetting('social_instagram') || '';
@@ -19,7 +21,6 @@ export default function Footer() {
     { label: 'About', href: '/about' },
     { label: 'Contact', href: '/contact' },
     { label: 'Shipping', href: '/shipping' },
-    { label: 'Returns', href: '/returns' },
     { label: 'Privacy', href: '/privacy' },
     { label: 'Terms', href: '/terms' },
   ];
@@ -35,8 +36,15 @@ export default function Footer() {
     <footer className="bg-black text-white">
       <div className="max-w-6xl mx-auto px-4 py-10">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
-          <Link href="/" className="text-lg font-semibold tracking-tight">
-            {siteName}
+          <Link href="/" className="flex items-center shrink-0">
+            <img
+              src={footerLogo}
+              alt={siteName}
+              className="w-auto object-contain"
+              style={{ maxHeight: `${footerLogoHeight}px` }}
+              onError={(e) => { e.currentTarget.style.display = 'none'; if (e.currentTarget.nextElementSibling) (e.currentTarget.nextElementSibling as HTMLElement).style.display = 'block'; }}
+            />
+            <span className="text-lg font-semibold tracking-tight hidden">{siteName}</span>
           </Link>
 
           <nav className="flex flex-wrap gap-x-6 gap-y-1 text-sm text-gray-400">

@@ -89,7 +89,7 @@ export default function CheckoutPage() {
 
   // Calculate Totals
   const subtotal = cartSubtotal;
-  const shippingCost = 0; // Delivery options temporarily disabled
+  const shippingCost = deliveryMethod === 'express-accra' ? 150 : 0;
   const tax = 0; // No Tax
   const total = subtotal + shippingCost + tax;
 
@@ -585,6 +585,25 @@ export default function CheckoutPage() {
                         </div>
                       </div>
                       <p className="font-semibold text-amber-600 text-sm">At a Cost</p>
+                    </label>
+
+                    <label className={`flex items-center justify-between p-4 border-2 rounded-lg cursor-pointer transition-colors ${deliveryMethod === 'express-accra' ? 'border-gray-900 bg-gray-50' : 'border-gray-300 hover:border-gray-400'
+                      }`}>
+                      <div className="flex items-center space-x-4">
+                        <input
+                          type="radio"
+                          name="delivery"
+                          value="express-accra"
+                          checked={deliveryMethod === 'express-accra'}
+                          onChange={(e) => setDeliveryMethod(e.target.value)}
+                          className="w-5 h-5 text-gray-900"
+                        />
+                        <div>
+                          <p className="font-semibold text-gray-900">Express Delivery (Accra)</p>
+                          <p className="text-sm text-gray-600">Fast delivery within Accra</p>
+                        </div>
+                      </div>
+                      <p className="font-bold text-gray-900">GH₵ 150.00</p>
                     </label>
 
                     {/* Comprehensive delivery options - to be re-enabled later

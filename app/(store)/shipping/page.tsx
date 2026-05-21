@@ -10,17 +10,24 @@ export default function ShippingPage() {
       icon: 'ri-truck-line'
     },
     {
-      type: 'Express Delivery',
+      type: 'Express Delivery (Accra)',
       time: 'Next Day',
-      cost: 'GHS 40',
-      description: 'Available for Accra & Kumasi orders placed before 2pm',
+      cost: 'GHS 150',
+      description: 'Fast delivery within Accra for orders placed before 2pm',
       icon: 'ri-rocket-line'
+    },
+    {
+      type: 'International Delivery',
+      time: '1-14 Business Days',
+      cost: 'Varies',
+      description: 'Worldwide shipping to any country',
+      icon: 'ri-global-line'
     },
     {
       type: 'Store Pickup',
       time: 'Same Day',
       cost: 'FREE',
-      description: 'Collect from our East Legon store',
+      description: 'Collect from our store',
       icon: 'ri-store-2-line'
     }
   ];
@@ -49,6 +56,12 @@ export default function ShippingPage() {
       areas: 'All other locations within Ghana',
       standard: '4-5 days',
       express: 'Not available'
+    },
+    {
+      zone: 'Zone 5 - International',
+      areas: 'USA, UK, Canada, Europe, Africa, Asia & Worldwide',
+      standard: '7-14 days',
+      express: '1-7 days'
     }
   ];
 
@@ -59,7 +72,7 @@ export default function ShippingPage() {
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-5xl font-bold text-gray-900 mb-6">Shipping & Delivery</h1>
             <p className="text-xl text-gray-600 leading-relaxed">
-              Fast, reliable delivery across Ghana. Free standard shipping on orders over GHS 300.
+              Fast, reliable delivery across Ghana.
             </p>
           </div>
         </div>
@@ -81,16 +94,6 @@ export default function ShippingPage() {
               </div>
             ))}
           </div>
-        </div>
-
-        <div className="bg-gray-50 border-2 border-gray-200 rounded-2xl p-8 mb-16 text-center">
-          <div className="w-16 h-16 bg-gray-900 rounded-full flex items-center justify-center mx-auto mb-4">
-            <i className="ri-gift-line text-3xl text-white"></i>
-          </div>
-          <h3 className="text-2xl font-bold text-gray-900 mb-3">Free Standard Shipping</h3>
-          <p className="text-lg text-gray-600">
-            Spend GHS 300 or more and get <span className="font-bold text-gray-900">FREE standard delivery</span> anywhere in Ghana
-          </p>
         </div>
 
         <div className="mb-16">

@@ -20,19 +20,6 @@ const categories = [
     ]
   },
   {
-    id: 'returns',
-    title: 'Returns & Refunds',
-    icon: 'ri-arrow-left-right-line',
-    count: 10,
-    articles: [
-      { id: 6, title: 'How do I return an item?', views: 2341 },
-      { id: 7, title: 'What is your return policy?', views: 1876 },
-      { id: 8, title: 'When will I get my refund?', views: 1432 },
-      { id: 9, title: 'Can I exchange instead of return?', views: 987 },
-      { id: 10, title: 'How do I print a return label?', views: 765 }
-    ]
-  },
-  {
     id: 'payment',
     title: 'Payment & Pricing',
     icon: 'ri-bank-card-line',
@@ -88,10 +75,10 @@ const categories = [
 
 const popularArticles = [
   { id: 1, title: 'How do I track my order?', category: 'Orders', views: 1247 },
-  { id: 6, title: 'How do I return an item?', category: 'Returns', views: 2341 },
+  { id: 6, title: 'How do I track my delivery?', category: 'Shipping', views: 2341 },
   { id: 26, title: 'How do I earn loyalty points?', category: 'Loyalty', views: 2134 },
   { id: 21, title: 'When will items be back in stock?', category: 'Products', views: 1987 },
-  { id: 7, title: 'What is your return policy?', category: 'Returns', views: 1876 }
+  { id: 7, title: 'What payment methods do you accept?', category: 'Payment', views: 1876 }
 ];
 
 export default function HelpCenterPage() {
@@ -247,18 +234,6 @@ export default function HelpCenterPage() {
               <h3 className="text-lg font-bold text-gray-900 mb-2">Contact Support</h3>
               <p className="text-gray-600 text-sm mb-4">Get help from our support team</p>
               <span className="text-blue-700 font-semibold whitespace-nowrap">Create Ticket →</span>
-            </Link>
-
-            <Link
-              href="/returns"
-              className="bg-white rounded-xl shadow-sm p-6 hover:shadow-lg transition-all text-center"
-            >
-              <div className="w-16 h-16 flex items-center justify-center bg-purple-100 rounded-full mx-auto mb-4">
-                <i className="ri-arrow-left-right-line text-3xl text-purple-700"></i>
-              </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-2">Start a Return</h3>
-              <p className="text-gray-600 text-sm mb-4">Return or exchange your item</p>
-              <span className="text-purple-700 font-semibold whitespace-nowrap">Initiate Return →</span>
             </Link>
 
             <Link

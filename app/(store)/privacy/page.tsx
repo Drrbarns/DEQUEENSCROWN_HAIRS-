@@ -281,7 +281,7 @@ export default function PrivacyPage() {
             </div>
 
             <p className="text-gray-600 leading-relaxed">
-              To exercise any of these rights, please contact us at <a href="mailto:privacy@premiumstore.com" className="text-gray-900 font-medium hover:underline">privacy@premiumstore.com</a> or through your account settings. We will respond within 30 days.
+              To exercise any of these rights, please contact us at <a href="mailto:dequeenscrownhair@gmail.com" className="text-gray-900 font-medium hover:underline">dequeenscrownhair@gmail.com</a> or through your account settings. We will respond within 30 days.
             </p>
           </section>
 
@@ -384,7 +384,7 @@ export default function PrivacyPage() {
                   <i className="ri-mail-line text-gray-900 text-xl mt-1"></i>
                   <div>
                     <p className="font-medium text-gray-900">Email</p>
-                    <a href="mailto:privacy@premiumstore.com" className="text-gray-900 hover:underline">privacy@premiumstore.com</a>
+                    <a href="mailto:dequeenscrownhair@gmail.com" className="text-gray-900 hover:underline">dequeenscrownhair@gmail.com</a>
                   </div>
                 </div>
 
@@ -392,7 +392,7 @@ export default function PrivacyPage() {
                   <i className="ri-phone-line text-gray-900 text-xl mt-1"></i>
                   <div>
                     <p className="font-medium text-gray-900">Phone</p>
-                    <a href="tel:+233241234567" className="text-gray-900 hover:underline">+233 24 123 4567</a>
+                    <a href="tel:+233204292019" className="text-gray-900 hover:underline">0204292019</a>
                   </div>
                 </div>
 
@@ -400,7 +400,7 @@ export default function PrivacyPage() {
                   <i className="ri-map-pin-line text-gray-900 text-xl mt-1"></i>
                   <div>
                     <p className="font-medium text-gray-900">Address</p>
-                    <p className="text-gray-600">Premium Store Ghana<br />East Legon, Accra<br />Ghana</p>
+                    <p className="text-gray-600">De Queen's Crown Hairs<br />Ghana</p>
                   </div>
                 </div>
               </div>

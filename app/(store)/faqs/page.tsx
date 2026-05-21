@@ -11,7 +11,6 @@ export default function FAQsPage() {
     { id: 'all', name: 'All Questions', icon: 'ri-question-line' },
     { id: 'orders', name: 'Orders', icon: 'ri-shopping-bag-line' },
     { id: 'shipping', name: 'Shipping', icon: 'ri-truck-line' },
-    { id: 'returns', name: 'Returns', icon: 'ri-arrow-go-back-line' },
     { id: 'payment', name: 'Payment', icon: 'ri-bank-card-line' },
     { id: 'account', name: 'Account', icon: 'ri-user-line' }
   ];
@@ -25,7 +24,7 @@ export default function FAQsPage() {
     {
       category: 'orders',
       question: 'Can I modify or cancel my order?',
-      answer: 'You can modify or cancel your order within 1 hour of placing it. Contact our customer service immediately at +233 24 123 4567 or hello@premiumstore.com. Once an order is processed, modifications may not be possible.'
+      answer: 'You can modify or cancel your order within 1 hour of placing it. Contact our customer service immediately at 0204292019 or dequeenscrownhair@gmail.com. Once an order is processed, modifications may not be possible.'
     },
     {
       category: 'orders',
@@ -45,7 +44,7 @@ export default function FAQsPage() {
     {
       category: 'shipping',
       question: 'How much does shipping cost?',
-      answer: 'Standard shipping costs GHS 20. Express delivery costs GHS 40. Orders over GHS 300 qualify for FREE standard shipping. Store pickup is also available at no charge from our Accra location.'
+      answer: 'Express delivery within Accra costs GHS 150. Doorstep delivery cost will be communicated after your order is placed. Store pickup is also available at no charge from our Accra location.'
     },
     {
       category: 'shipping',
@@ -56,26 +55,6 @@ export default function FAQsPage() {
       category: 'shipping',
       question: 'What if nobody is home for delivery?',
       answer: 'Our delivery partner will attempt delivery twice. If unsuccessful, the package will be held at the nearest collection point for 5 days. You\'ll receive SMS and email notifications with collection instructions.'
-    },
-    {
-      category: 'returns',
-      question: 'What is your return policy?',
-      answer: 'We offer a 14-day return policy for unused items in original packaging. Simply initiate a return from your account, print the return label, and ship it back. Refunds are processed within 5-7 business days after we receive the item.'
-    },
-    {
-      category: 'returns',
-      question: 'Which items cannot be returned?',
-      answer: 'For hygiene reasons, we cannot accept returns on opened cosmetics, intimate apparel, earrings, or perishable goods. Custom or personalised items are also non-returnable unless defective.'
-    },
-    {
-      category: 'returns',
-      question: 'Who pays for return shipping?',
-      answer: 'If you\'re returning due to a defect or our error, we cover return shipping. For change-of-mind returns, customers pay return shipping costs (GHS 15 standard rate). Free shipping on returns for defective items.'
-    },
-    {
-      category: 'returns',
-      question: 'Can I exchange an item instead of returning it?',
-      answer: 'Yes! If you need a different size or colour, select "Exchange" when initiating your return. We\'ll send the replacement as soon as we receive your original item. Exchange shipping is FREE.'
     },
     {
       category: 'payment',
@@ -95,12 +74,7 @@ export default function FAQsPage() {
     {
       category: 'payment',
       question: 'When will my payment be charged?',
-      answer: 'For card and mobile money payments, you\'re charged immediately. For Cash on Delivery, you pay when you receive your order. If an item is out of stock, we\'ll refund you within 24 hours.'
-    },
-    {
-      category: 'payment',
-      question: 'How do refunds work?',
-      answer: 'Refunds are processed to your original payment method within 5-7 business days after we receive and inspect your return. For mobile money refunds, ensure you provide correct details. You\'ll receive confirmation via email.'
+      answer: 'For card and mobile money payments, you\'re charged immediately. For Cash on Delivery, you pay when you receive your order.'
     },
     {
       category: 'account',
@@ -255,16 +229,6 @@ export default function FAQsPage() {
             <h3 className="text-xl font-bold text-gray-900 mb-2">Shipping Policy</h3>
             <p className="text-gray-600 leading-relaxed">
               Learn about delivery times, costs, and tracking your orders
-            </p>
-          </Link>
-
-          <Link href="/returns" className="bg-gray-50 p-8 rounded-2xl hover:shadow-lg transition-all cursor-pointer">
-            <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mb-4">
-              <i className="ri-arrow-go-back-line text-2xl text-gray-900"></i>
-            </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-2">Returns Policy</h3>
-            <p className="text-gray-600 leading-relaxed">
-              Understand our return process, timeframes, and refund policy
             </p>
           </Link>
 

@@ -213,8 +213,8 @@ export const defaultSettings: SiteSettings = {
     // Hero
     hero_headline: 'Crown Your Look with Premium Hair',
     hero_subheadline: 'Human hair wigs & extensions, handpicked for quality and style.',
-    hero_image: '/hero.jpg',
-    hero_video: '/wighero.mp4',
+    hero_image: '/hero.png',
+    hero_video: '',
     hero_badge_label: 'Exclusive Offer',
     hero_badge_text: '25% Off',
     hero_badge_subtext: 'On your first dedicated order',
@@ -234,9 +234,9 @@ export const defaultSettings: SiteSettings = {
     feature1_icon: 'ri-store-2-line',
     feature1_title: 'Free Store Pickup',
     feature1_desc: 'Pick up at our store',
-    feature2_icon: 'ri-arrow-left-right-line',
-    feature2_title: 'Easy Returns',
-    feature2_desc: '30-day return policy',
+    feature2_icon: 'ri-vip-crown-line',
+    feature2_title: 'Premium Quality',
+    feature2_desc: '100% human hair',
     feature3_icon: 'ri-customer-service-2-line',
     feature3_title: '24/7 Support',
     feature3_desc: 'Dedicated service',
@@ -248,8 +248,8 @@ export const defaultSettings: SiteSettings = {
     about_hero_title: 'Our Story',
     about_hero_subtitle: 'Where quality hair meets the crown you deserve.',
     about_story_title: 'Built for Queens, by a Queen',
-    about_story_content: 'De Queen\'s Crown Hairs started from a simple belief: every woman deserves to feel like royalty—without compromise on quality or style.\n\nWe source premium human hair and create wigs that look and feel like your own. No shortcuts, no synthetic substitutes where it matters. Just honest quality you can trust.\n\nWhether you\'re after a bold new look or a seamless everyday style, we\'re here to help you crown it.',
-    about_story_image: '/about-wig.png',
+    about_story_content: 'At De Queen\'s Crown Hairs, we are Africa\'s leading global hair supplier, serving customers across the world with premium-quality human hair.\n\nOur journey started with one simple belief — every woman deserves to feel confident and crowned like royalty — without compromising on quality or style.\n\nWith factories located in Vietnam and China, we are able to provide top-grade human hair, luxury wigs, bundles, closures, frontals, and custom hair solutions to clients worldwide. We proudly serve wholesalers, retailers, hairstylists, salon owners, beauty brands, and entrepreneurs looking to start or grow their hair business globally.\n\nWhether you are launching your own hair brand, buying in bulk, or searching for luxury hair you can trust, De Queen\'s Crown Hairs is your number one destination.\n\nWe believe in delivering excellence — no shortcuts, no compromises, just authentic quality that speaks for itself.\n\nJoin thousands of satisfied clients around the world and experience premium hair fit for a Queen.',
+    about_story_image: '/ceo.png',
     about_founder_name: 'De Queen\'s Crown Hairs',
     about_founder_title: 'Premium Hair & Wigs',
     about_mission1_title: 'Real Hair, Real Quality',
@@ -300,7 +300,7 @@ export const defaultSettings: SiteSettings = {
         { label: 'Contact Us', href: '/contact' },
         { label: 'Track My Order', href: '/order-tracking' },
         { label: 'Shipping Info', href: '/shipping' },
-        { label: 'Returns Policy', href: '/returns' }
+        { label: 'FAQs', href: '/faqs' }
     ]),
     footer_col3_title: 'Company',
     footer_col3_links_json: JSON.stringify([

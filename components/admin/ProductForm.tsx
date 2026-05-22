@@ -442,7 +442,7 @@ export default function ProductForm({ initialData, isEditMode = false }: Product
                     <button
                         onClick={handleSubmit}
                         disabled={loading}
-                        className={`px-6 py-3 bg-gray-900 hover:bg-gray-800 text-white rounded-lg font-semibold transition-colors whitespace-nowrap cursor-pointer flex items-center ${loading ? 'opacity-70 cursor-not-allowed' : ''}`}
+                        className={`px-6 py-3 bg-peach-600 hover:bg-peach-700 text-white rounded-lg font-semibold transition-colors whitespace-nowrap cursor-pointer flex items-center ${loading ? 'opacity-70 cursor-not-allowed' : ''}`}
                     >
                         {loading ? (
                             <>
@@ -467,7 +467,7 @@ export default function ProductForm({ initialData, isEditMode = false }: Product
                                 key={tab.id}
                                 onClick={() => setActiveTab(tab.id)}
                                 className={`flex items-center space-x-2 px-6 py-4 font-semibold whitespace-nowrap transition-colors border-b-2 cursor-pointer ${activeTab === tab.id
-                                    ? 'border-gray-900 text-gray-900 bg-gray-50'
+                                    ? 'border-peach-600 text-gray-900 bg-gray-50'
                                     : 'border-transparent text-gray-600 hover:text-gray-900 hover:bg-gray-50'
                                     }`}
                             >
@@ -779,7 +779,7 @@ export default function ProductForm({ initialData, isEditMode = false }: Product
                                     <button
                                         onClick={addCustomColor}
                                         disabled={!customColorName.trim()}
-                                        className="px-4 py-2 bg-gray-800 text-white rounded-lg text-sm font-medium hover:bg-gray-900 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+                                        className="px-4 py-2 bg-peach-600 text-white rounded-lg text-sm font-medium hover:bg-peach-700 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
                                     >
                                         Add Color
                                     </button>
@@ -846,7 +846,7 @@ export default function ProductForm({ initialData, isEditMode = false }: Product
                                     <button
                                         onClick={addCustomSize}
                                         disabled={!customSize.trim()}
-                                        className="px-4 py-2 bg-gray-800 text-white rounded-lg text-sm font-medium hover:bg-gray-900 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+                                        className="px-4 py-2 bg-peach-600 text-white rounded-lg text-sm font-medium hover:bg-peach-700 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
                                     >
                                         Add Size
                                     </button>
@@ -996,7 +996,7 @@ export default function ProductForm({ initialData, isEditMode = false }: Product
                                             <img src={img.url} alt={`Product ${index + 1}`} className="w-full h-full object-cover" />
                                         </div>
                                         {index === 0 && (
-                                            <span className="absolute top-2 left-2 bg-gray-900 text-white px-2 py-1 rounded text-xs font-semibold whitespace-nowrap">
+                                            <span className="absolute top-2 left-2 bg-peach-600 text-white px-2 py-1 rounded text-xs font-semibold whitespace-nowrap">
                                                 Primary
                                             </span>
                                         )}

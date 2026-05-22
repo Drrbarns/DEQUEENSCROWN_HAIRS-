@@ -372,7 +372,7 @@ export default function OrderDetailClient({ orderId }: OrderDetailClientProps) {
           </div>
           <button
             onClick={handlePrint}
-            className="flex items-center space-x-2 bg-gray-800 hover:bg-gray-900 text-white px-4 py-2 rounded-lg font-medium transition-colors"
+            className="flex items-center space-x-2 bg-peach-600 hover:bg-peach-700 text-white px-4 py-2 rounded-lg font-medium transition-colors"
           >
             <i className="ri-printer-line text-lg"></i>
             <span>Print Order</span>
@@ -453,7 +453,7 @@ export default function OrderDetailClient({ orderId }: OrderDetailClientProps) {
               <div className="space-y-4">
                 {timeline.map((event, index) => (
                   <div key={index} className="flex items-start space-x-4">
-                    <div className={`w-10 h-10 flex items-center justify-center rounded-full border-2 ${event.completed ? 'bg-gray-700 border-gray-700' : 'bg-white border-gray-300'
+                    <div className={`w-10 h-10 flex items-center justify-center rounded-full border-2 ${event.completed ? 'bg-peach-600 border-peach-600' : 'bg-white border-gray-300'
                       }`}>
                       {event.completed ? (
                         <i className="ri-check-line text-white text-xl"></i>
@@ -519,7 +519,7 @@ export default function OrderDetailClient({ orderId }: OrderDetailClientProps) {
               <button
                 onClick={() => handleUpdateStatus()}
                 disabled={statusUpdating}
-                className="w-full mt-4 bg-gray-700 hover:bg-gray-800 text-white py-3 rounded-lg font-semibold transition-colors whitespace-nowrap disabled:opacity-50"
+                className="w-full mt-4 bg-peach-600 hover:bg-peach-700 text-white py-3 rounded-lg font-semibold transition-colors whitespace-nowrap disabled:opacity-50"
               >
                 {statusUpdating ? 'Updating...' : 'Update Status'}
               </button>
@@ -617,7 +617,7 @@ export default function OrderDetailClient({ orderId }: OrderDetailClientProps) {
               <button
                 onClick={() => handleUpdateStatus()}
                 disabled={statusUpdating}
-                className="w-full mt-3 bg-gray-700 hover:bg-gray-800 text-white py-2 rounded-lg font-medium transition-colors whitespace-nowrap disabled:opacity-50"
+                className="w-full mt-3 bg-peach-600 hover:bg-peach-700 text-white py-2 rounded-lg font-medium transition-colors whitespace-nowrap disabled:opacity-50"
               >
                 Save Note
               </button>

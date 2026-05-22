@@ -101,7 +101,7 @@ export default function HelpCenterPage() {
     <>
       <Header />
       <main className="min-h-screen bg-gray-50">
-        <div className="bg-gradient-to-br from-gray-900 to-gray-900 text-white py-16">
+        <div className="bg-gradient-to-br from-peach-600 to-peach-700 text-white py-16">
           <div className="max-w-4xl mx-auto px-4 text-center">
             <h1 className="text-4xl font-bold mb-4">How can we help you?</h1>
             <p className="text-gray-100 mb-8 text-lg">Search our help center or browse by category</p>
@@ -171,7 +171,7 @@ export default function HelpCenterPage() {
               <button
                 key={category.id}
                 onClick={() => setSelectedCategory(category.id)}
-                className="bg-white rounded-xl shadow-sm p-6 text-left hover:shadow-lg transition-all border-2 border-transparent hover:border-gray-900"
+                className="bg-white rounded-xl shadow-sm p-6 text-left hover:shadow-lg transition-all border-2 border-transparent hover:border-peach-600"
               >
                 <div className="w-14 h-14 flex items-center justify-center bg-gray-100 rounded-xl mb-4">
                   <i className={`${category.icon} text-3xl text-gray-900`}></i>

@@ -33,7 +33,7 @@ export default function Footer() {
   ].filter((s) => s.link);
 
   return (
-    <footer className="bg-black text-white">
+    <footer className="bg-peach-950 text-white">
       <div className="max-w-6xl mx-auto px-4 py-10">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
           <Link href="/" className="flex items-center shrink-0">

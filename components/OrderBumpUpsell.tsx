@@ -36,7 +36,7 @@ export default function OrderBumpUpsell({ products, onToggle }: OrderBumpUpsellP
             key={product.id}
             className={`bg-white rounded-lg p-4 border-2 transition-all cursor-pointer ${
               product.selected
-                ? 'border-gray-900 shadow-md'
+                ? 'border-peach-600 shadow-md'
                 : 'border-gray-200 hover:border-gray-300'
             }`}
             onClick={() => onToggle(product.id)}
@@ -75,7 +75,7 @@ export default function OrderBumpUpsell({ products, onToggle }: OrderBumpUpsellP
 
               <div className={`w-8 h-8 flex items-center justify-center rounded-full border-2 transition-colors ${
                 product.selected
-                  ? 'border-gray-900 bg-gray-900'
+                  ? 'border-peach-600 bg-peach-600'
                   : 'border-gray-300'
               }`}>
                 {product.selected && <i className="ri-check-line text-white"></i>}

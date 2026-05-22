@@ -534,7 +534,7 @@ export default function SettingsPage() {
         return (
             <div className="min-h-[60vh] flex items-center justify-center">
                 <div className="text-center">
-                    <div className="w-12 h-12 border-4 border-gray-200 border-t-gray-900 rounded-full animate-spin mx-auto mb-4"></div>
+                    <div className="w-12 h-12 border-4 border-gray-200 border-t-peach-600 rounded-full animate-spin mx-auto mb-4"></div>
                     <p className="text-gray-500">Loading settings...</p>
                 </div>
             </div>
@@ -554,8 +554,8 @@ export default function SettingsPage() {
                         onClick={handleSave}
                         disabled={saving}
                         className={`inline-flex items-center gap-2 px-6 py-2.5 rounded-lg font-medium text-sm transition-all shadow-sm ${saved
-                            ? 'bg-gray-100 text-gray-900 border border-gray-200'
-                            : 'bg-gray-900 text-white hover:bg-gray-800 active:scale-95'
+                            ? 'bg-peach-50 text-peach-700 border border-peach-200'
+                            : 'bg-peach-600 text-white hover:bg-peach-700 active:scale-95'
                             } disabled:opacity-50`}
                     >
                         {saving ? (
@@ -577,7 +577,7 @@ export default function SettingsPage() {
                                     key={tab.id}
                                     onClick={() => setActiveTab(tab.id)}
                                     className={`w-full flex items-center gap-3 px-4 py-3.5 text-sm font-medium transition-colors text-left ${activeTab === tab.id
-                                        ? 'bg-gray-50 text-gray-900 border-l-4 border-gray-900'
+                                        ? 'bg-peach-50 text-peach-700 border-l-4 border-peach-600'
                                         : 'text-gray-600 hover:bg-gray-50 border-l-4 border-transparent'
                                         }`}
                                 >
@@ -596,7 +596,7 @@ export default function SettingsPage() {
                                     key={tab.id}
                                     onClick={() => setActiveTab(tab.id)}
                                     className={`flex flex-col items-center gap-0.5 px-3 py-2 rounded-lg text-xs font-medium whitespace-nowrap transition-colors ${activeTab === tab.id
-                                        ? 'bg-gray-50 text-gray-900'
+                                        ? 'bg-peach-50 text-peach-700'
                                         : 'text-gray-500'
                                         }`}
                                 >

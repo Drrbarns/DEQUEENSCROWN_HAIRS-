@@ -586,7 +586,7 @@ export default function ProductDetailClient({ slug }: { slug: string }) {
                 <div className="flex flex-col sm:flex-row gap-4 mb-8">
                   <button
                     disabled={activeStock === 0 || needsVariantSelection || needsColorSelection}
-                    className={`flex-1 bg-gray-900 hover:bg-gray-700 text-white py-4 rounded-lg font-semibold transition-colors flex items-center justify-center space-x-2 text-lg whitespace-nowrap cursor-pointer ${(activeStock === 0 || needsVariantSelection || needsColorSelection) ? 'opacity-50 cursor-not-allowed' : ''}`}
+                    className={`flex-1 bg-peach-600 hover:bg-peach-700 text-white py-4 rounded-lg font-semibold transition-colors flex items-center justify-center space-x-2 text-lg whitespace-nowrap cursor-pointer ${(activeStock === 0 || needsVariantSelection || needsColorSelection) ? 'opacity-50 cursor-not-allowed' : ''}`}
                     onClick={handleAddToCart}
                   >
                     <i className="ri-shopping-cart-line text-xl"></i>
@@ -595,7 +595,7 @@ export default function ProductDetailClient({ slug }: { slug: string }) {
                   {activeStock > 0 && !needsVariantSelection && !needsColorSelection && (
                     <button
                       onClick={handleBuyNow}
-                      className="sm:w-auto bg-gray-700 hover:bg-gray-800 text-white px-8 py-4 rounded-lg font-semibold transition-colors whitespace-nowrap cursor-pointer"
+                      className="sm:w-auto bg-peach-700 hover:bg-peach-800 text-white px-8 py-4 rounded-lg font-semibold transition-colors whitespace-nowrap cursor-pointer"
                     >
                       Buy Now
                     </button>

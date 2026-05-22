@@ -58,7 +58,7 @@ export default function ProductEditor({ productId }: { productId: string }) {
             <i className="ri-eye-line mr-2"></i>
             Preview
           </button>
-          <button className="px-6 py-3 bg-gray-700 hover:bg-gray-800 text-white rounded-lg font-semibold transition-colors whitespace-nowrap cursor-pointer">
+          <button className="px-6 py-3 bg-peach-600 hover:bg-peach-700 text-white rounded-lg font-semibold transition-colors whitespace-nowrap cursor-pointer">
             <i className="ri-save-line mr-2"></i>
             Save Changes
           </button>
@@ -265,7 +265,7 @@ export default function ProductEditor({ productId }: { productId: string }) {
                   <h3 className="text-lg font-bold text-gray-900">Product Variants</h3>
                   <p className="text-gray-600 mt-1">Manage different versions of this product</p>
                 </div>
-                <button className="px-4 py-2 bg-gray-700 hover:bg-gray-800 text-white rounded-lg font-semibold transition-colors whitespace-nowrap cursor-pointer">
+                <button className="px-4 py-2 bg-peach-600 hover:bg-peach-700 text-white rounded-lg font-semibold transition-colors whitespace-nowrap cursor-pointer">
                   <i className="ri-add-line mr-2"></i>
                   Add Variant
                 </button>

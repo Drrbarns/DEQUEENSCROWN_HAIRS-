@@ -72,7 +72,7 @@ export default function CartSuggestions() {
                     <span className="text-xs text-gray-400 line-through">GH₵{product.originalPrice.toFixed(2)}</span>
                   )}
                 </div>
-                <button className="w-full py-2 bg-gray-900 text-white text-sm rounded-lg font-semibold hover:bg-gray-800 transition-colors whitespace-nowrap">
+                <button className="w-full py-2 bg-peach-600 text-white text-sm rounded-lg font-semibold hover:bg-peach-700 transition-colors whitespace-nowrap">
                   <i className="ri-add-line mr-1"></i>
                   Quick Add
                 </button>

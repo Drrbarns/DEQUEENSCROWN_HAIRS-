@@ -62,7 +62,7 @@ export default function CookieConsent() {
     <>
       <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[9998]" onClick={() => !showPreferences && rejectAll()} />
       
-      <div className="fixed bottom-0 left-0 right-0 bg-white border-t-4 border-gray-900 shadow-2xl z-[9999] animate-slide-up">
+      <div className="fixed bottom-0 left-0 right-0 bg-white border-t-4 border-peach-600 shadow-2xl z-[9999] animate-slide-up">
         <div className="max-w-7xl mx-auto px-4 py-6">
           {!showPreferences ? (
             <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
@@ -118,7 +118,7 @@ export default function CookieConsent() {
                   disabled={!acceptedTerms}
                   className={`px-6 py-3 rounded-lg font-semibold transition-colors whitespace-nowrap ${
                     acceptedTerms
-                      ? 'bg-gray-900 hover:bg-gray-800 text-white cursor-pointer'
+                      ? 'bg-peach-600 hover:bg-peach-700 text-white cursor-pointer'
                       : 'bg-gray-300 text-gray-500 cursor-not-allowed'
                   }`}
                   title={!acceptedTerms ? 'Please accept Terms & Conditions first' : ''}
@@ -165,7 +165,7 @@ export default function CookieConsent() {
                   <button
                     onClick={() => setPreferences({ ...preferences, analytics: !preferences.analytics })}
                     className={`w-12 h-6 rounded-full flex items-center px-1 transition-colors cursor-pointer ${
-                      preferences.analytics ? 'bg-gray-900' : 'bg-gray-300'
+                      preferences.analytics ? 'bg-peach-600' : 'bg-gray-300'
                     }`}
                   >
                     <div className={`w-4 h-4 bg-white rounded-full shadow-sm transition-transform ${
@@ -184,7 +184,7 @@ export default function CookieConsent() {
                   <button
                     onClick={() => setPreferences({ ...preferences, marketing: !preferences.marketing })}
                     className={`w-12 h-6 rounded-full flex items-center px-1 transition-colors cursor-pointer ${
-                      preferences.marketing ? 'bg-gray-900' : 'bg-gray-300'
+                      preferences.marketing ? 'bg-peach-600' : 'bg-gray-300'
                     }`}
                   >
                     <div className={`w-4 h-4 bg-white rounded-full shadow-sm transition-transform ${
@@ -203,7 +203,7 @@ export default function CookieConsent() {
                   <button
                     onClick={() => setPreferences({ ...preferences, functional: !preferences.functional })}
                     className={`w-12 h-6 rounded-full flex items-center px-1 transition-colors cursor-pointer ${
-                      preferences.functional ? 'bg-gray-900' : 'bg-gray-300'
+                      preferences.functional ? 'bg-peach-600' : 'bg-gray-300'
                     }`}
                   >
                     <div className={`w-4 h-4 bg-white rounded-full shadow-sm transition-transform ${
@@ -244,7 +244,7 @@ export default function CookieConsent() {
                   disabled={!acceptedTerms}
                   className={`flex-1 px-6 py-3 rounded-lg font-semibold transition-colors whitespace-nowrap ${
                     acceptedTerms
-                      ? 'bg-gray-900 hover:bg-gray-800 text-white cursor-pointer'
+                      ? 'bg-peach-600 hover:bg-peach-700 text-white cursor-pointer'
                       : 'bg-gray-300 text-gray-500 cursor-not-allowed'
                   }`}
                 >
@@ -255,7 +255,7 @@ export default function CookieConsent() {
                   disabled={!acceptedTerms}
                   className={`flex-1 px-6 py-3 rounded-lg font-semibold transition-colors whitespace-nowrap ${
                     acceptedTerms
-                      ? 'bg-gray-900 hover:bg-gray-900 text-white cursor-pointer'
+                      ? 'bg-peach-600 hover:bg-peach-700 text-white cursor-pointer'
                       : 'bg-gray-300 text-gray-500 cursor-not-allowed'
                   }`}
                 >

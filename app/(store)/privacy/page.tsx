@@ -127,28 +127,28 @@ export default function PrivacyPage() {
             </p>
 
             <div className="space-y-4">
-              <div className="border-l-4 border-gray-900 pl-6">
+              <div className="border-l-4 border-peach-600 pl-6">
                 <h3 className="font-bold text-gray-900 mb-2">Service Providers</h3>
                 <p className="text-gray-600 text-sm leading-relaxed">
                   Trusted third parties who help us operate our business (payment processors, delivery partners, email service providers, analytics tools). They are contractually bound to protect your data.
                 </p>
               </div>
 
-              <div className="border-l-4 border-gray-900 pl-6">
+              <div className="border-l-4 border-peach-600 pl-6">
                 <h3 className="font-bold text-gray-900 mb-2">Business Transfers</h3>
                 <p className="text-gray-600 text-sm leading-relaxed">
                   If we merge with or are acquired by another company, your information may be transferred as part of the transaction. We will notify you of any such change.
                 </p>
               </div>
 
-              <div className="border-l-4 border-gray-900 pl-6">
+              <div className="border-l-4 border-peach-600 pl-6">
                 <h3 className="font-bold text-gray-900 mb-2">Legal Requirements</h3>
                 <p className="text-gray-600 text-sm leading-relaxed">
                   When required by law or to protect our rights, property, or safety, or that of our customers or others.
                 </p>
               </div>
 
-              <div className="border-l-4 border-gray-900 pl-6">
+              <div className="border-l-4 border-peach-600 pl-6">
                 <h3 className="font-bold text-gray-900 mb-2">With Your Consent</h3>
                 <p className="text-gray-600 text-sm leading-relaxed">
                   Any other disclosures will be made only with your explicit consent.
@@ -165,7 +165,7 @@ export default function PrivacyPage() {
 
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-gray-50 border border-gray-200 p-6 rounded-xl">
-                <div className="w-10 h-10 bg-gray-900 rounded-full flex items-center justify-center mb-4">
+                <div className="w-10 h-10 bg-peach-600 rounded-full flex items-center justify-center mb-4">
                   <i className="ri-lock-line text-white text-lg"></i>
                 </div>
                 <h3 className="font-bold text-gray-900 mb-2">Encryption</h3>
@@ -175,7 +175,7 @@ export default function PrivacyPage() {
               </div>
 
               <div className="bg-gray-50 border border-gray-200 p-6 rounded-xl">
-                <div className="w-10 h-10 bg-gray-900 rounded-full flex items-center justify-center mb-4">
+                <div className="w-10 h-10 bg-peach-600 rounded-full flex items-center justify-center mb-4">
                   <i className="ri-shield-check-line text-white text-lg"></i>
                 </div>
                 <h3 className="font-bold text-gray-900 mb-2">Secure Storage</h3>
@@ -185,7 +185,7 @@ export default function PrivacyPage() {
               </div>
 
               <div className="bg-gray-50 border border-gray-200 p-6 rounded-xl">
-                <div className="w-10 h-10 bg-gray-900 rounded-full flex items-center justify-center mb-4">
+                <div className="w-10 h-10 bg-peach-600 rounded-full flex items-center justify-center mb-4">
                   <i className="ri-bank-card-line text-white text-lg"></i>
                 </div>
                 <h3 className="font-bold text-gray-900 mb-2">Payment Security</h3>
@@ -195,7 +195,7 @@ export default function PrivacyPage() {
               </div>
 
               <div className="bg-gray-50 border border-gray-200 p-6 rounded-xl">
-                <div className="w-10 h-10 bg-gray-900 rounded-full flex items-center justify-center mb-4">
+                <div className="w-10 h-10 bg-peach-600 rounded-full flex items-center justify-center mb-4">
                   <i className="ri-user-lock-line text-white text-lg"></i>
                 </div>
                 <h3 className="font-bold text-gray-900 mb-2">Access Controls</h3>

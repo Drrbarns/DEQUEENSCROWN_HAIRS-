@@ -75,7 +75,7 @@ export default function MyTicketsPage() {
             </div>
             <Link
               href="/support/ticket"
-              className="bg-gray-900 hover:bg-gray-800 text-white px-6 py-3 rounded-lg font-semibold transition-colors whitespace-nowrap"
+              className="bg-peach-600 hover:bg-peach-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors whitespace-nowrap"
             >
               <i className="ri-add-line mr-2"></i>
               New Ticket
@@ -136,7 +136,7 @@ export default function MyTicketsPage() {
               <p className="text-gray-600 mb-6">You don't have any support tickets yet</p>
               <Link
                 href="/support/ticket"
-                className="inline-block bg-gray-900 hover:bg-gray-800 text-white px-6 py-3 rounded-lg font-semibold transition-colors whitespace-nowrap"
+                className="inline-block bg-peach-600 hover:bg-peach-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors whitespace-nowrap"
               >
                 Create Your First Ticket
               </Link>

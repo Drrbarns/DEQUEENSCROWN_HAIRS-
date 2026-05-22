@@ -331,7 +331,7 @@ export default function CheckoutPage() {
           </div>
           <h1 className="text-2xl font-bold text-gray-900 mb-2">Your cart is empty</h1>
           <p className="text-gray-600 mb-8">Add some items to start the checkout process.</p>
-          <Link href="/shop" className="inline-block bg-gray-900 text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-800 transition-colors">
+          <Link href="/shop" className="inline-block bg-peach-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-peach-700 transition-colors">
             Return to Shop
           </Link>
         </div>
@@ -358,14 +358,14 @@ export default function CheckoutPage() {
               <button
                 onClick={() => !user && setCheckoutType('guest')}
                 className={`p-6 rounded-xl border-2 transition-all text-left cursor-pointer ${checkoutType === 'guest'
-                  ? 'border-gray-900 bg-gray-50'
+                  ? 'border-peach-600 bg-gray-50'
                   : 'border-gray-200 hover:border-gray-300'
                   } ${user ? 'opacity-50 cursor-not-allowed' : ''}`}
                 disabled={!!user}
               >
                 <div className="flex items-center justify-between mb-3">
                   <i className="ri-user-line text-3xl text-gray-900"></i>
-                  <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center ${checkoutType === 'guest' ? 'border-gray-900 bg-gray-900' : 'border-gray-300'
+                  <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center ${checkoutType === 'guest' ? 'border-peach-600 bg-peach-600' : 'border-gray-300'
                     }`}>
                     {checkoutType === 'guest' && <i className="ri-check-line text-white text-sm"></i>}
                   </div>
@@ -378,13 +378,13 @@ export default function CheckoutPage() {
               <button
                 onClick={() => setCheckoutType('account')}
                 className={`p-6 rounded-xl border-2 transition-all text-left cursor-pointer ${checkoutType === 'account'
-                  ? 'border-gray-900 bg-gray-50'
+                  ? 'border-peach-600 bg-gray-50'
                   : 'border-gray-200 hover:border-gray-300'
                   }`}
               >
                 <div className="flex items-center justify-between mb-3">
                   <i className="ri-account-circle-line text-3xl text-gray-900"></i>
-                  <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center ${checkoutType === 'account' ? 'border-gray-900 bg-gray-900' : 'border-gray-300'
+                  <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center ${checkoutType === 'account' ? 'border-peach-600 bg-peach-600' : 'border-gray-300'
                     }`}>
                     {checkoutType === 'account' && <i className="ri-check-line text-white text-sm"></i>}
                   </div>
@@ -534,7 +534,7 @@ export default function CheckoutPage() {
 
                   <button
                     onClick={handleContinueToDelivery}
-                    className="w-full mt-6 bg-gray-900 hover:bg-gray-800 text-white py-4 rounded-lg font-semibold transition-colors whitespace-nowrap cursor-pointer"
+                    className="w-full mt-6 bg-peach-600 hover:bg-peach-700 text-white py-4 rounded-lg font-semibold transition-colors whitespace-nowrap cursor-pointer"
                   >
                     Continue to Delivery
                   </button>
@@ -549,7 +549,7 @@ export default function CheckoutPage() {
                 <div className="bg-white rounded-xl shadow-sm p-6 mb-6">
                   <h2 className="text-xl font-bold text-gray-900 mb-6">Delivery Method</h2>
                   <div className="space-y-4">
-                    <label className={`flex items-center justify-between p-4 border-2 rounded-lg cursor-pointer transition-colors ${deliveryMethod === 'pickup' ? 'border-gray-900 bg-gray-50' : 'border-gray-300 hover:border-gray-400'
+                    <label className={`flex items-center justify-between p-4 border-2 rounded-lg cursor-pointer transition-colors ${deliveryMethod === 'pickup' ? 'border-peach-600 bg-gray-50' : 'border-gray-300 hover:border-gray-400'
                       }`}>
                       <div className="flex items-center space-x-4">
                         <input
@@ -568,7 +568,7 @@ export default function CheckoutPage() {
                       <p className="font-bold text-gray-900">FREE</p>
                     </label>
 
-                    <label className={`flex items-center justify-between p-4 border-2 rounded-lg cursor-pointer transition-colors ${deliveryMethod === 'doorstep' ? 'border-gray-900 bg-gray-50' : 'border-gray-300 hover:border-gray-400'
+                    <label className={`flex items-center justify-between p-4 border-2 rounded-lg cursor-pointer transition-colors ${deliveryMethod === 'doorstep' ? 'border-peach-600 bg-gray-50' : 'border-gray-300 hover:border-gray-400'
                       }`}>
                       <div className="flex items-center space-x-4">
                         <input
@@ -587,7 +587,7 @@ export default function CheckoutPage() {
                       <p className="font-semibold text-amber-600 text-sm">At a Cost</p>
                     </label>
 
-                    <label className={`flex items-center justify-between p-4 border-2 rounded-lg cursor-pointer transition-colors ${deliveryMethod === 'express-accra' ? 'border-gray-900 bg-gray-50' : 'border-gray-300 hover:border-gray-400'
+                    <label className={`flex items-center justify-between p-4 border-2 rounded-lg cursor-pointer transition-colors ${deliveryMethod === 'express-accra' ? 'border-peach-600 bg-gray-50' : 'border-gray-300 hover:border-gray-400'
                       }`}>
                       <div className="flex items-center space-x-4">
                         <input
@@ -635,7 +635,7 @@ export default function CheckoutPage() {
                   <h2 className="text-xl font-bold text-gray-900 mt-8 mb-4">Payment Method</h2>
                   <div className="space-y-4">
                     <label
-                      className={`flex items-center justify-between p-4 border-2 rounded-lg cursor-pointer transition-colors ${paymentMethod === 'paystack' ? 'border-gray-900 bg-gray-50' : 'border-gray-300 hover:border-gray-400'
+                      className={`flex items-center justify-between p-4 border-2 rounded-lg cursor-pointer transition-colors ${paymentMethod === 'paystack' ? 'border-peach-600 bg-gray-50' : 'border-gray-300 hover:border-gray-400'
                         }`}
                     >
                       <div className="flex items-center space-x-4">
@@ -655,7 +655,7 @@ export default function CheckoutPage() {
                       <i className="ri-bank-card-line text-2xl text-gray-500"></i>
                     </label>
                     <label
-                      className={`flex items-center justify-between p-4 border-2 rounded-lg cursor-pointer transition-colors ${paymentMethod === 'moolre' ? 'border-gray-900 bg-gray-50' : 'border-gray-300 hover:border-gray-400'
+                      className={`flex items-center justify-between p-4 border-2 rounded-lg cursor-pointer transition-colors ${paymentMethod === 'moolre' ? 'border-peach-600 bg-gray-50' : 'border-gray-300 hover:border-gray-400'
                         }`}
                     >
                       <div className="flex items-center space-x-4">
@@ -687,7 +687,7 @@ export default function CheckoutPage() {
                     <button
                       onClick={handleContinueToPayment}
                       disabled={isLoading}
-                      className="flex-1 bg-gray-900 hover:bg-gray-800 text-white py-4 rounded-lg font-semibold transition-colors whitespace-nowrap cursor-pointer disabled:opacity-70 flex items-center justify-center"
+                      className="flex-1 bg-peach-600 hover:bg-peach-700 text-white py-4 rounded-lg font-semibold transition-colors whitespace-nowrap cursor-pointer disabled:opacity-70 flex items-center justify-center"
                     >
                       {isLoading ? (
                         <>

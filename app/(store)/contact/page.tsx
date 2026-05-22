@@ -179,7 +179,7 @@ export default function ContactPage() {
                   <div className="flex gap-2">
                     <a
                       href={`tel:${contact.phone}`}
-                      className="flex-1 flex items-center justify-center gap-1.5 bg-gray-900 text-white py-2 rounded-lg text-sm font-medium hover:bg-gray-800 transition-colors"
+                      className="flex-1 flex items-center justify-center gap-1.5 bg-peach-600 text-white py-2 rounded-lg text-sm font-medium hover:bg-peach-700 transition-colors"
                     >
                       <i className="ri-phone-line"></i> Call
                     </a>
@@ -187,7 +187,7 @@ export default function ContactPage() {
                       href={`https://wa.me/233${contact.phone.replace(/^0/, '')}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 flex items-center justify-center gap-1.5 bg-gray-900 text-white py-2 rounded-lg text-sm font-medium hover:bg-gray-800 transition-colors"
+                      className="flex-1 flex items-center justify-center gap-1.5 bg-peach-600 text-white py-2 rounded-lg text-sm font-medium hover:bg-peach-700 transition-colors"
                     >
                       <i className="ri-whatsapp-line"></i> WhatsApp
                     </a>
@@ -304,7 +304,7 @@ export default function ContactPage() {
               <button
                 type="submit"
                 disabled={isSubmitting || verifying}
-                className="w-full bg-gray-900 text-white py-4 rounded-xl font-medium hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap cursor-pointer"
+                className="w-full bg-peach-600 text-white py-4 rounded-xl font-medium hover:bg-peach-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap cursor-pointer"
               >
                 {isSubmitting || verifying ? (verifying ? 'Verifying...' : 'Sending...') : 'Send Message'}
               </button>
@@ -330,7 +330,7 @@ export default function ContactPage() {
               ))}
             </div>
 
-            <div className="bg-gradient-to-br from-gray-900 to-gray-900 p-8 rounded-2xl text-white">
+            <div className="bg-gradient-to-br from-peach-600 to-peach-700 p-8 rounded-2xl text-white">
               <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mb-4">
                 <i className="ri-customer-service-2-line text-2xl"></i>
               </div>

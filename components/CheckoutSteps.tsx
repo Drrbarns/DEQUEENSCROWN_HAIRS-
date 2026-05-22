@@ -16,7 +16,7 @@ export default function CheckoutSteps({ currentStep }: CheckoutStepsProps) {
           <div className="flex flex-col items-center flex-1">
             <div className={`w-12 h-12 flex items-center justify-center rounded-full font-bold transition-colors ${
               currentStep >= step.number
-                ? 'bg-gray-900 text-white'
+                ? 'bg-peach-600 text-white'
                 : 'bg-gray-200 text-gray-500'
             }`}>
               <i className={`${step.icon} text-xl`}></i>
@@ -29,7 +29,7 @@ export default function CheckoutSteps({ currentStep }: CheckoutStepsProps) {
           </div>
           {index < steps.length - 1 && (
             <div className={`h-0.5 flex-1 mx-4 transition-colors ${
-              currentStep > step.number ? 'bg-gray-900' : 'bg-gray-200'
+              currentStep > step.number ? 'bg-peach-600' : 'bg-gray-200'
             }`}></div>
           )}
         </div>

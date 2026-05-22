@@ -76,7 +76,7 @@ export default function AdminCouponsPage() {
         </div>
         <button
           onClick={() => setShowAddModal(true)}
-          className="bg-gray-900 hover:bg-gray-800 text-white px-6 py-3 rounded-lg font-semibold transition-colors whitespace-nowrap cursor-pointer"
+          className="bg-peach-600 hover:bg-peach-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors whitespace-nowrap cursor-pointer"
         >
           <i className="ri-add-line mr-2"></i>
           Create Coupon

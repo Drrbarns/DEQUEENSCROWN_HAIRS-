@@ -105,7 +105,7 @@ export default function VerifyEmailPage() {
             <button
               onClick={handleVerify}
               disabled={code.join('').length !== 6 || isVerifying}
-              className="w-full py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed font-medium whitespace-nowrap"
+              className="w-full py-3 bg-peach-600 text-white rounded-lg hover:bg-peach-700 transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed font-medium whitespace-nowrap"
             >
               {isVerifying ? (
                 <>

@@ -85,7 +85,7 @@ export default function Home() {
   const renderBanners = () => {
     if (activeBanners.length === 0) return null;
     return (
-      <div className="bg-gray-900 text-white py-2 overflow-hidden relative">
+      <div className="bg-peach-600 text-white py-2 overflow-hidden relative">
         <div className="flex animate-marquee whitespace-nowrap">
           {activeBanners.concat(activeBanners).map((banner, index) => (
             <span key={index} className="mx-8 text-sm font-medium tracking-wide flex items-center">
@@ -299,7 +299,7 @@ export default function Home() {
           <div className="text-center mt-16">
             <Link
               href="/shop"
-              className="inline-flex items-center justify-center bg-gray-900 text-white px-10 py-4 rounded-full font-medium hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 btn-animate"
+              className="inline-flex items-center justify-center bg-peach-600 text-white px-10 py-4 rounded-full font-medium hover:bg-peach-700 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 btn-animate"
             >
               View All Products
             </Link>

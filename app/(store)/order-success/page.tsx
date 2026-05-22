@@ -183,7 +183,7 @@ function OrderSuccessContent() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
               <Link
                 href={`/account?tab=orders`}
-                className="bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-lg font-semibold transition-colors inline-flex items-center justify-center whitespace-nowrap"
+                className="bg-peach-600 hover:bg-peach-700 text-white px-8 py-4 rounded-lg font-semibold transition-colors inline-flex items-center justify-center whitespace-nowrap"
               >
                 <i className="ri-file-list-3-line mr-2"></i>
                 View Order

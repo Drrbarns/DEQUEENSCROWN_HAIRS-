@@ -162,7 +162,7 @@ export default function ProductCard({
         {hasVariants ? (
           <Link
             href={`/product/${slug}`}
-            className="w-full border border-black py-2 sm:py-3 px-2 sm:px-4 text-center text-black font-medium text-[11px] sm:text-sm hover:bg-black hover:text-white transition-colors"
+            className="w-full border border-peach-600 py-2 sm:py-3 px-2 sm:px-4 text-center text-peach-700 font-medium text-[11px] sm:text-sm hover:bg-peach-600 hover:text-white transition-colors"
           >
             Select Options
           </Link>
@@ -174,7 +174,7 @@ export default function ProductCard({
               addToCart({ id, name, price, image, quantity: moq, slug, maxStock, moq });
             }}
             disabled={!inStock}
-            className="w-full border border-black py-2 sm:py-3 px-2 sm:px-4 text-center text-black font-medium text-[11px] sm:text-sm hover:bg-black hover:text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full border border-peach-600 py-2 sm:py-3 px-2 sm:px-4 text-center text-peach-700 font-medium text-[11px] sm:text-sm hover:bg-peach-600 hover:text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
             Add to cart
           </button>

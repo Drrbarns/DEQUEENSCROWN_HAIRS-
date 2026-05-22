@@ -150,8 +150,8 @@ export default function MobileFilterDrawer({ isOpen, onClose }: MobileFilterDraw
                   onClick={() => toggleSize(size)}
                   className={`px-4 py-2 text-sm rounded-lg border transition-colors whitespace-nowrap ${
                     selectedSizes.includes(size)
-                      ? 'bg-gray-900 text-white border-gray-900'
-                      : 'bg-white text-gray-700 border-gray-300 hover:border-gray-900'
+                      ? 'bg-peach-600 text-white border-peach-600'
+                      : 'bg-white text-gray-700 border-gray-300 hover:border-peach-600'
                   }`}
                 >
                   {size}
@@ -169,7 +169,7 @@ export default function MobileFilterDrawer({ isOpen, onClose }: MobileFilterDraw
                   onClick={() => toggleColor(color.name)}
                   className={`relative w-10 h-10 rounded-full border-2 transition-all ${
                     selectedColors.includes(color.name)
-                      ? 'border-gray-900 scale-110'
+                      ? 'border-peach-600 scale-110'
                       : 'border-gray-300'
                   }`}
                   style={{ backgroundColor: color.hex }}
@@ -213,7 +213,7 @@ export default function MobileFilterDrawer({ isOpen, onClose }: MobileFilterDraw
         <div className="sticky bottom-0 bg-white border-t border-gray-200 p-4">
           <button
             onClick={onClose}
-            className="w-full bg-gray-900 text-white py-3 rounded-lg font-medium hover:bg-gray-800 transition-colors whitespace-nowrap"
+            className="w-full bg-peach-600 text-white py-3 rounded-lg font-medium hover:bg-peach-700 transition-colors whitespace-nowrap"
           >
             Show Results ({234})
           </button>

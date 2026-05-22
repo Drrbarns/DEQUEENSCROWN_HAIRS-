@@ -123,7 +123,7 @@ export default function AdminBlogPage() {
           <h1 className="text-3xl font-bold text-gray-900">Blog Posts</h1>
           <p className="text-gray-600 mt-1">Create and manage your blog content</p>
         </div>
-        <Link href="/admin/blog/new" className="bg-gray-900 hover:bg-gray-800 text-white px-6 py-3 rounded-lg font-semibold transition-colors whitespace-nowrap">
+        <Link href="/admin/blog/new" className="bg-peach-600 hover:bg-peach-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors whitespace-nowrap">
           <i className="ri-add-line mr-2"></i>
           New Post
         </Link>
@@ -174,14 +174,14 @@ export default function AdminBlogPage() {
             <div className="flex border-2 border-gray-300 rounded-lg overflow-hidden">
               <button
                 onClick={() => setViewMode('grid')}
-                className={`w-10 h-10 flex items-center justify-center transition-colors ${viewMode === 'grid' ? 'bg-gray-900 text-white' : 'bg-white text-gray-700 hover:bg-gray-50'
+                className={`w-10 h-10 flex items-center justify-center transition-colors ${viewMode === 'grid' ? 'bg-peach-600 text-white' : 'bg-white text-gray-700 hover:bg-gray-50'
                   }`}
               >
                 <i className="ri-grid-line text-xl"></i>
               </button>
               <button
                 onClick={() => setViewMode('list')}
-                className={`w-10 h-10 flex items-center justify-center border-l-2 border-gray-300 transition-colors ${viewMode === 'list' ? 'bg-gray-900 text-white' : 'bg-white text-gray-700 hover:bg-gray-50'
+                className={`w-10 h-10 flex items-center justify-center border-l-2 border-gray-300 transition-colors ${viewMode === 'list' ? 'bg-peach-600 text-white' : 'bg-white text-gray-700 hover:bg-gray-50'
                   }`}
               >
                 <i className="ri-list-check text-xl"></i>
@@ -196,7 +196,7 @@ export default function AdminBlogPage() {
               {selectedPosts.length} post{selectedPosts.length > 1 ? 's' : ''} selected
             </p>
             <div className="flex items-center space-x-2">
-              <button className="px-4 py-2 bg-gray-700 hover:bg-gray-900 text-white rounded-lg text-sm font-medium transition-colors whitespace-nowrap">
+              <button className="px-4 py-2 bg-peach-600 hover:bg-peach-700 text-white rounded-lg text-sm font-medium transition-colors whitespace-nowrap">
                 Publish
               </button>
               <button className="px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg text-sm font-medium transition-colors whitespace-nowrap">
@@ -252,7 +252,7 @@ export default function AdminBlogPage() {
                   <div className="flex items-center space-x-2">
                     <Link
                       href={`/admin/blog/${post.id}`}
-                      className="flex-1 bg-gray-900 hover:bg-gray-800 text-white py-2 rounded-lg text-sm font-medium text-center transition-colors whitespace-nowrap"
+                      className="flex-1 bg-peach-600 hover:bg-peach-700 text-white py-2 rounded-lg text-sm font-medium text-center transition-colors whitespace-nowrap"
                     >
                       Edit Post
                     </Link>
@@ -348,7 +348,7 @@ export default function AdminBlogPage() {
             <button className="w-10 h-10 flex items-center justify-center border-2 border-gray-300 rounded-lg hover:border-gray-400 transition-colors">
               <i className="ri-arrow-left-s-line text-xl text-gray-600"></i>
             </button>
-            <button className="w-10 h-10 flex items-center justify-center bg-gray-900 text-white rounded-lg font-semibold">1</button>
+            <button className="w-10 h-10 flex items-center justify-center bg-peach-600 text-white rounded-lg font-semibold">1</button>
             <button className="w-10 h-10 flex items-center justify-center border-2 border-gray-300 rounded-lg hover:border-gray-400 transition-colors">
               <i className="ri-arrow-right-s-line text-xl text-gray-600"></i>
             </button>

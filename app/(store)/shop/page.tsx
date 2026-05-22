@@ -357,7 +357,7 @@ function ShopContent() {
                         // Re-fetch handled by effect dependencies
                         setIsFilterOpen(false);
                       }}
-                      className="w-full bg-gray-900 hover:bg-gray-900 text-white py-3 rounded-lg font-medium transition-colors whitespace-nowrap"
+                      className="w-full bg-peach-600 hover:bg-peach-700 text-white py-3 rounded-lg font-medium transition-colors whitespace-nowrap"
                     >
                       Show Results
                     </button>
@@ -419,7 +419,7 @@ function ShopContent() {
                           setSelectedRating(0);
                           setPage(1);
                         }}
-                        className="inline-flex items-center bg-gray-900 hover:bg-gray-900 text-white px-6 py-3 rounded-lg font-medium transition-colors whitespace-nowrap"
+                        className="inline-flex items-center bg-peach-600 hover:bg-peach-700 text-white px-6 py-3 rounded-lg font-medium transition-colors whitespace-nowrap"
                       >
                         Clear All Filters
                       </button>

@@ -268,7 +268,7 @@ export default function ShippingPage() {
           <div className="mt-8 text-center">
             <Link
               href="/order-tracking"
-              className="inline-flex items-center gap-2 bg-gray-900 text-white px-8 py-4 rounded-full font-medium hover:bg-gray-800 transition-colors whitespace-nowrap"
+              className="inline-flex items-center gap-2 bg-peach-600 text-white px-8 py-4 rounded-full font-medium hover:bg-peach-700 transition-colors whitespace-nowrap"
             >
               <i className="ri-map-pin-line"></i>
               Track Your Order
@@ -276,7 +276,7 @@ export default function ShippingPage() {
           </div>
         </div>
 
-        <div className="bg-gradient-to-br from-gray-900 to-gray-900 rounded-2xl p-8 text-white text-center">
+        <div className="bg-gradient-to-br from-peach-600 to-peach-700 rounded-2xl p-8 text-white text-center">
           <h2 className="text-3xl font-bold mb-4">Need Help with Your Delivery?</h2>
           <p className="text-gray-100 mb-6 leading-relaxed">
             Questions about shipping costs, delivery times, or tracking? Our customer service team is here to help.
@@ -290,7 +290,7 @@ export default function ShippingPage() {
             </Link>
             <Link
               href="/faqs"
-              className="inline-flex items-center gap-2 bg-gray-700 text-white px-6 py-3 rounded-full font-medium hover:bg-gray-600 transition-colors whitespace-nowrap"
+              className="inline-flex items-center gap-2 bg-peach-800 text-white px-6 py-3 rounded-full font-medium hover:bg-peach-900 transition-colors whitespace-nowrap"
             >
               View FAQs
             </Link>

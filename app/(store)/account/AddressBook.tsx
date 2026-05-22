@@ -37,7 +37,7 @@ export default function AddressBook() {
         <h2 className="text-2xl font-bold text-gray-900">Address Book</h2>
         <button
           onClick={() => setShowForm(true)}
-          className="px-4 py-2 bg-gray-900 text-white rounded-lg font-semibold hover:bg-gray-800 transition-colors whitespace-nowrap"
+          className="px-4 py-2 bg-peach-600 text-white rounded-lg font-semibold hover:bg-peach-700 transition-colors whitespace-nowrap"
         >
           <i className="ri-add-line mr-2"></i>
           Add New Address
@@ -115,7 +115,7 @@ export default function AddressBook() {
             <div className="md:col-span-2 flex space-x-3">
               <button
                 type="submit"
-                className="flex-1 py-3 bg-gray-900 text-white rounded-lg font-semibold hover:bg-gray-800 transition-colors whitespace-nowrap"
+                className="flex-1 py-3 bg-peach-600 text-white rounded-lg font-semibold hover:bg-peach-700 transition-colors whitespace-nowrap"
               >
                 Save Address
               </button>
@@ -143,7 +143,7 @@ export default function AddressBook() {
           >
             {address.isDefault && (
               <div className="absolute top-4 right-4">
-                <span className="px-3 py-1 bg-gray-900 text-white text-xs font-semibold rounded-full whitespace-nowrap">
+                <span className="px-3 py-1 bg-peach-600 text-white text-xs font-semibold rounded-full whitespace-nowrap">
                   Default
                 </span>
               </div>

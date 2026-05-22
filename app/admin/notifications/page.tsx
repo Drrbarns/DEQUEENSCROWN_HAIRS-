@@ -216,7 +216,7 @@ export default function NotificationsPage() {
                     <button
                         type="submit"
                         disabled={loading || (!form.channels.email && !form.channels.sms)}
-                        className="w-full bg-gray-900 text-white py-4 rounded-lg font-bold text-lg hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+                        className="w-full bg-peach-600 text-white py-4 rounded-lg font-bold text-lg hover:bg-peach-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
                     >
                         {loading ? (
                             <span className="flex items-center justify-center">

@@ -7,7 +7,7 @@ interface PageHeroProps {
 
 export default function PageHero({ title, subtitle }: PageHeroProps) {
     return (
-        <div className="relative bg-gray-900 overflow-hidden">
+        <div className="relative bg-peach-950 overflow-hidden">
             <div className="absolute inset-0 opacity-20">
                 <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
             </div>

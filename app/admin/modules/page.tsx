@@ -200,7 +200,7 @@ export default function ModulesPage() {
             )}
             <button
               type="submit"
-              className="w-full bg-gray-900 hover:bg-gray-900 text-white font-bold py-4 rounded-xl transition-colors text-lg"
+              className="w-full bg-peach-600 hover:bg-peach-700 text-white font-bold py-4 rounded-xl transition-colors text-lg"
             >
               Unlock Dashboard
             </button>
@@ -270,7 +270,7 @@ export default function ModulesPage() {
                         </div>
                         <button
                           onClick={() => toggleModule(module.id, module.enabled)}
-                          className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${module.enabled ? 'bg-gray-700' : 'bg-gray-300'}`}
+                          className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${module.enabled ? 'bg-peach-600' : 'bg-gray-300'}`}
                         >
                           <span className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${module.enabled ? 'translate-x-6' : 'translate-x-1'}`} />
                         </button>

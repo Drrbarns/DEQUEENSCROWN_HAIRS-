@@ -82,7 +82,7 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
                         key={index}
                         onClick={() => setSelectedImage(index)}
                         className={`relative aspect-square bg-gray-100 rounded-lg overflow-hidden border-2 transition-colors ${
-                          selectedImage === index ? 'border-gray-900' : 'border-transparent hover:border-gray-300'
+                          selectedImage === index ? 'border-peach-600' : 'border-transparent hover:border-gray-300'
                         }`}
                       >
                         <Image src={image} alt="" fill className="object-cover object-top" sizes="12vw" quality={50} />
@@ -146,7 +146,7 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
                           onClick={() => setSelectedColor(color)}
                           className={`px-4 py-2 border-2 rounded-lg font-medium transition-colors whitespace-nowrap ${
                             selectedColor === color
-                              ? 'border-gray-900 bg-gray-50 text-gray-900'
+                              ? 'border-peach-600 bg-gray-50 text-gray-900'
                               : 'border-gray-300 hover:border-gray-400 text-gray-700'
                           }`}
                         >
@@ -169,7 +169,7 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
                           onClick={() => setSelectedSize(size)}
                           className={`px-4 py-2 border-2 rounded-lg font-medium transition-colors whitespace-nowrap ${
                             selectedSize === size
-                              ? 'border-gray-900 bg-gray-50 text-gray-900'
+                              ? 'border-peach-600 bg-gray-50 text-gray-900'
                               : 'border-gray-300 hover:border-gray-400 text-gray-700'
                           }`}
                         >
@@ -215,9 +215,9 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
                     disabled={!product.inStock}
                     className={`w-full py-4 rounded-lg font-semibold transition-colors whitespace-nowrap ${
                       addedToCart
-                        ? 'bg-gray-900 text-white'
+                        ? 'bg-peach-600 text-white'
                         : product.inStock
-                        ? 'bg-gray-900 hover:bg-gray-800 text-white'
+                        ? 'bg-peach-600 hover:bg-peach-700 text-white'
                         : 'bg-gray-300 text-gray-500 cursor-not-allowed'
                     }`}
                   >
@@ -236,7 +236,7 @@ export default function QuickViewModal({ product, isOpen, onClose }: QuickViewMo
 
                   <Link
                     href={`/product/${product.id}`}
-                    className="block w-full py-4 border-2 border-gray-900 text-gray-900 rounded-lg font-semibold text-center hover:bg-gray-50 transition-colors whitespace-nowrap"
+                    className="block w-full py-4 border-2 border-peach-600 text-peach-700 rounded-lg font-semibold text-center hover:bg-peach-50 transition-colors whitespace-nowrap"
                   >
                     View Full Details
                   </Link>

@@ -149,7 +149,7 @@ export default function ProductsPage() {
         </div>
         <Link
           href="/admin/products/new"
-          className="px-6 py-3 bg-gray-900 hover:bg-gray-800 text-white rounded-lg font-semibold transition-colors whitespace-nowrap cursor-pointer flex items-center justify-center md:items-start"
+          className="px-6 py-3 bg-peach-600 hover:bg-peach-700 text-white rounded-lg font-semibold transition-colors whitespace-nowrap cursor-pointer flex items-center justify-center md:items-start"
         >
           <i className="ri-add-line mr-2"></i>
           Add Product
@@ -213,14 +213,14 @@ export default function ProductsPage() {
               <div className="flex border-2 border-gray-300 rounded-lg overflow-hidden">
                 <button
                   onClick={() => setViewMode('list')}
-                  className={`w-10 h-10 flex items-center justify-center transition-colors cursor-pointer ${viewMode === 'list' ? 'bg-gray-900 text-white' : 'bg-white text-gray-700 hover:bg-gray-50'
+                  className={`w-10 h-10 flex items-center justify-center transition-colors cursor-pointer ${viewMode === 'list' ? 'bg-peach-600 text-white' : 'bg-white text-gray-700 hover:bg-gray-50'
                     }`}
                 >
                   <i className="ri-list-check text-xl w-5 h-5 flex items-center justify-center"></i>
                 </button>
                 <button
                   onClick={() => setViewMode('grid')}
-                  className={`w-10 h-10 flex items-center justify-center border-l-2 border-gray-300 transition-colors cursor-pointer ${viewMode === 'grid' ? 'bg-gray-900 text-white' : 'bg-white text-gray-700 hover:bg-gray-50'
+                  className={`w-10 h-10 flex items-center justify-center border-l-2 border-gray-300 transition-colors cursor-pointer ${viewMode === 'grid' ? 'bg-peach-600 text-white' : 'bg-white text-gray-700 hover:bg-gray-50'
                     }`}
                 >
                   <i className="ri-grid-line text-xl w-5 h-5 flex items-center justify-center"></i>
@@ -385,7 +385,7 @@ export default function ProductsPage() {
                 <div className="flex items-center space-x-2">
                   <Link
                     href={`/admin/products/${product.id}`}
-                    className="flex-1 bg-gray-900 hover:bg-gray-800 text-white py-2 rounded-lg text-sm font-medium text-center transition-colors whitespace-nowrap cursor-pointer"
+                    className="flex-1 bg-peach-600 hover:bg-peach-700 text-white py-2 rounded-lg text-sm font-medium text-center transition-colors whitespace-nowrap cursor-pointer"
                   >
                     Edit
                   </Link>

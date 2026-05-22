@@ -51,7 +51,7 @@ export default function WishlistPage() {
             {wishlistItems.length > 0 && (
               <button
                 onClick={addAllToCart}
-                className="bg-gray-900 hover:bg-gray-900 text-white px-6 py-3 rounded-lg font-semibold transition-colors whitespace-nowrap"
+                className="bg-peach-600 hover:bg-peach-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors whitespace-nowrap"
               >
                 Add All to Cart
               </button>
@@ -68,7 +68,7 @@ export default function WishlistPage() {
             </div>
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Your wishlist is empty</h2>
             <p className="text-gray-600 mb-8 text-lg">Save your favourite items here to easily find them later</p>
-            <Link href="/shop" className="inline-block bg-gray-900 hover:bg-gray-900 text-white px-8 py-4 rounded-lg font-semibold transition-colors whitespace-nowrap">
+            <Link href="/shop" className="inline-block bg-peach-600 hover:bg-peach-700 text-white px-8 py-4 rounded-lg font-semibold transition-colors whitespace-nowrap">
               Explore Products
             </Link>
           </div>
@@ -95,7 +95,7 @@ export default function WishlistPage() {
 
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="bg-gradient-to-r from-gray-900 to-gray-800 rounded-2xl p-12 text-center text-white">
+          <div className="bg-gradient-to-r from-peach-600 to-peach-700 rounded-2xl p-12 text-center text-white">
             <h2 className="text-3xl font-bold mb-4">Share Your Wishlist</h2>
             <p className="text-gray-100 mb-8 text-lg">Let friends and family know what you love</p>
             <div className="flex justify-center space-x-4">

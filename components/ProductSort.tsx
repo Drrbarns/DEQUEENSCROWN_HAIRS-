@@ -55,7 +55,7 @@ export default function ProductSort({ onSortChange, totalProducts }: ProductSort
             <button
               onClick={() => setViewMode('grid')}
               className={`w-10 h-10 flex items-center justify-center transition-colors ${
-                viewMode === 'grid' ? 'bg-gray-900 text-white' : 'bg-white text-gray-600 hover:bg-gray-50'
+                viewMode === 'grid' ? 'bg-peach-600 text-white' : 'bg-white text-gray-600 hover:bg-gray-50'
               }`}
             >
               <i className="ri-grid-line"></i>
@@ -63,7 +63,7 @@ export default function ProductSort({ onSortChange, totalProducts }: ProductSort
             <button
               onClick={() => setViewMode('list')}
               className={`w-10 h-10 flex items-center justify-center transition-colors ${
-                viewMode === 'list' ? 'bg-gray-900 text-white' : 'bg-white text-gray-600 hover:bg-gray-50'
+                viewMode === 'list' ? 'bg-peach-600 text-white' : 'bg-white text-gray-600 hover:bg-gray-50'
               }`}
             >
               <i className="ri-list-check"></i>

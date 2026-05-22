@@ -90,13 +90,13 @@ export default function ReturnsPortalPage() {
               {[1, 2, 3].map((i) => (
                 <div key={i} className="flex items-center flex-1">
                   <div className={`w-10 h-10 flex items-center justify-center rounded-full font-bold ${
-                    i <= step ? 'bg-gray-900 text-white' : 'bg-gray-200 text-gray-500'
+                    i <= step ? 'bg-peach-600 text-white' : 'bg-gray-200 text-gray-500'
                   }`}>
                     {i < step ? <i className="ri-check-line"></i> : i}
                   </div>
                   {i < 3 && (
                     <div className={`flex-1 h-1 mx-4 ${
-                      i < step ? 'bg-gray-900' : 'bg-gray-200'
+                      i < step ? 'bg-peach-600' : 'bg-gray-200'
                     }`}></div>
                   )}
                 </div>
@@ -144,7 +144,7 @@ export default function ReturnsPortalPage() {
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className="w-full bg-gray-900 hover:bg-gray-800 text-white py-4 rounded-lg font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
+                  className="w-full bg-peach-600 hover:bg-peach-700 text-white py-4 rounded-lg font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
                 >
                   {isLoading ? 'Finding Order...' : 'Find Order'}
                 </button>
@@ -266,7 +266,7 @@ export default function ReturnsPortalPage() {
                 <button
                   onClick={() => setStep(3)}
                   disabled={selectedItems.length === 0 || !selectedItems.every(id => returnReasons[id])}
-                  className="flex-1 py-4 bg-gray-900 hover:bg-gray-800 text-white rounded-lg font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
+                  className="flex-1 py-4 bg-peach-600 hover:bg-peach-700 text-white rounded-lg font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
                 >
                   Continue
                 </button>
@@ -327,7 +327,7 @@ export default function ReturnsPortalPage() {
                 <button
                   onClick={handleSubmitReturn}
                   disabled={isLoading}
-                  className="flex-1 py-4 bg-gray-900 hover:bg-gray-800 text-white rounded-lg font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
+                  className="flex-1 py-4 bg-peach-600 hover:bg-peach-700 text-white rounded-lg font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
                 >
                   {isLoading ? 'Submitting...' : 'Submit Return Request'}
                 </button>

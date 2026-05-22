@@ -201,13 +201,13 @@ export const defaultSettings: SiteSettings = {
     currency: 'GHS',
     currency_symbol: 'GH₵',
 
-    // Appearance — black & white
-    primary_color: '#000000',
-    secondary_color: '#171717',
-    accent_color: '#404040',
+    // Appearance — peach theme
+    primary_color: '#E07060',
+    secondary_color: '#C25A4D',
+    accent_color: '#FF8A70',
     header_bg: '#ffffff',
-    header_text: '#171717',
-    footer_bg: '#0a0a0a',
+    header_text: '#3D1B17',
+    footer_bg: '#3D1B17',
     footer_text: '#ffffff',
 
     // Hero

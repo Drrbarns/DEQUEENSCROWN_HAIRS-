@@ -68,7 +68,7 @@ export default function MaintenancePage() {
               href="https://wa.me/233241234567"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-gray-900 text-white px-6 py-3 rounded-full font-medium hover:bg-gray-800 transition-colors whitespace-nowrap"
+              className="inline-flex items-center gap-2 bg-peach-600 text-white px-6 py-3 rounded-full font-medium hover:bg-peach-700 transition-colors whitespace-nowrap"
             >
               <i className="ri-whatsapp-line"></i>
               WhatsApp

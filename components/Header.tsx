@@ -121,7 +121,7 @@ export default function Header() {
                 >
                   <i className="ri-heart-line text-xl" aria-hidden />
                   {wishlistCount > 0 && (
-                    <span className="absolute top-1 right-0.5 min-w-[18px] h-[18px] px-1 bg-gray-900 text-white text-[10px] font-medium rounded-full flex items-center justify-center">
+                    <span className="absolute top-1 right-0.5 min-w-[18px] h-[18px] px-1 bg-peach-600 text-white text-[10px] font-medium rounded-full flex items-center justify-center">
                       {wishlistCount}
                     </span>
                   )}
@@ -158,7 +158,7 @@ export default function Header() {
                   >
                     <i className="ri-shopping-cart-line text-xl" aria-hidden />
                     {cartCount > 0 && (
-                      <span className="absolute top-1 right-0.5 min-w-[18px] h-[18px] px-1 bg-gray-900 text-white text-[10px] font-medium rounded-full flex items-center justify-center">
+                      <span className="absolute top-1 right-0.5 min-w-[18px] h-[18px] px-1 bg-peach-600 text-white text-[10px] font-medium rounded-full flex items-center justify-center">
                         {cartCount}
                       </span>
                     )}

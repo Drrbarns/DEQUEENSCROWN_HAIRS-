@@ -450,7 +450,7 @@ export default function POSPage() {
                                 key={cat}
                                 onClick={() => setActiveCategory(cat)}
                                 className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors ${activeCategory === cat
-                                    ? 'bg-gray-900 text-white shadow-md'
+                                    ? 'bg-peach-600 text-white shadow-md'
                                     : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                                     }`}
                             >
@@ -491,7 +491,7 @@ export default function POSPage() {
                                         <h3 className="text-sm font-semibold text-gray-900 line-clamp-2 mb-auto">{product.name}</h3>
                                         <div className="flex items-center justify-between mt-2 pt-2">
                                             <span className="text-gray-900 font-bold">GH₵{product.price.toFixed(2)}</span>
-                                            <button className="w-8 h-8 rounded-full bg-gray-50 text-gray-900 flex items-center justify-center group-hover:bg-gray-900 group-hover:text-white transition-colors">
+                                            <button className="w-8 h-8 rounded-full bg-gray-50 text-gray-900 flex items-center justify-center group-hover:bg-peach-600 group-hover:text-white transition-colors">
                                                 <i className="ri-add-line"></i>
                                             </button>
                                         </div>
@@ -507,7 +507,7 @@ export default function POSPage() {
                     <div className="lg:hidden p-4 border-t border-gray-200 bg-white fixed bottom-0 left-0 right-0 z-30 shadow-2xl safe-area-bottom">
                         <button
                             onClick={() => setIsMobileCartOpen(true)}
-                            className="w-full py-3 bg-gray-900 text-white rounded-xl font-bold flex justify-between px-6 shadow-lg active:scale-95 transition-transform"
+                            className="w-full py-3 bg-peach-600 text-white rounded-xl font-bold flex justify-between px-6 shadow-lg active:scale-95 transition-transform"
                         >
                             <span className="flex items-center text-sm">
                                 <span className="bg-white/20 px-2 py-0.5 rounded mr-2">{cart.reduce((a, b) => a + b.cartQuantity, 0)}</span>
@@ -606,7 +606,7 @@ export default function POSPage() {
                         <button
                             onClick={() => { setShowCheckoutModal(true); setCheckoutError(null); }}
                             disabled={cart.length === 0}
-                            className="px-4 py-3 bg-gray-700 text-white rounded-lg hover:bg-gray-900 font-bold text-sm shadow-sm transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                            className="px-4 py-3 bg-peach-600 text-white rounded-lg hover:bg-peach-700 font-bold text-sm shadow-sm transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                         >
                             Charge GH₵{grandTotal.toFixed(2)}
                         </button>
@@ -672,7 +672,7 @@ export default function POSPage() {
                                         <i className="ri-printer-line mr-2"></i>
                                         Print Receipt
                                     </button>
-                                    <button onClick={resetCheckout} className="py-3 px-4 bg-gray-700 text-white rounded-xl font-semibold hover:bg-gray-900 transition-colors">
+                                    <button onClick={resetCheckout} className="py-3 px-4 bg-peach-600 text-white rounded-xl font-semibold hover:bg-peach-700 transition-colors">
                                         New Order
                                     </button>
                                 </div>
@@ -951,7 +951,7 @@ export default function POSPage() {
                                     <button
                                         onClick={handleCheckout}
                                         disabled={processing}
-                                        className="w-full py-4 bg-gray-900 text-white rounded-xl font-bold text-lg shadow-lg hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center justify-center space-x-2"
+                                        className="w-full py-4 bg-peach-600 text-white rounded-xl font-bold text-lg shadow-lg hover:bg-peach-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center justify-center space-x-2"
                                     >
                                         {processing ? (
                                             <>

@@ -341,7 +341,7 @@ export default function AdminOrdersPage() {
           </button>
           <button
             onClick={handleExportAll}
-            className="flex-1 md:flex-none bg-gray-900 hover:bg-gray-800 text-white px-6 py-3 rounded-lg font-semibold transition-colors whitespace-nowrap cursor-pointer shadow-sm flex items-center justify-center"
+            className="flex-1 md:flex-none bg-peach-600 hover:bg-peach-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors whitespace-nowrap cursor-pointer shadow-sm flex items-center justify-center"
           >
             <i className="ri-download-line mr-2"></i>
             Export
@@ -355,7 +355,7 @@ export default function AdminOrdersPage() {
           onClick={() => { setOrderViewTab('confirmed'); setStatusFilter('all'); }}
           className={`px-6 py-3 font-semibold text-sm border-b-2 transition-colors cursor-pointer ${
             orderViewTab === 'confirmed'
-              ? 'border-gray-900 text-gray-900'
+              ? 'border-peach-600 text-peach-700'
               : 'border-transparent text-gray-500 hover:text-gray-700'
           }`}
         >
@@ -382,7 +382,7 @@ export default function AdminOrdersPage() {
             key={stat.status}
             onClick={() => setStatusFilter(stat.status)}
             className={`p-4 rounded-xl border-2 transition-all text-left cursor-pointer ${statusFilter === stat.status
-              ? 'border-gray-900 bg-gray-50'
+              ? 'border-peach-600 bg-peach-50'
               : 'border-gray-200 bg-white hover:border-gray-300'
               }`}
           >
@@ -503,7 +503,7 @@ export default function AdminOrdersPage() {
               </button>
               <button
                 onClick={() => handleBulkAction('Export')}
-                className="px-4 py-2 bg-gray-700 hover:bg-gray-800 text-white rounded-lg text-sm font-medium transition-colors whitespace-nowrap cursor-pointer"
+                className="px-4 py-2 bg-peach-600 hover:bg-peach-700 text-white rounded-lg text-sm font-medium transition-colors whitespace-nowrap cursor-pointer"
               >
                 <i className="ri-download-line mr-2"></i>
                 Export

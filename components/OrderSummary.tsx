@@ -29,7 +29,7 @@ export default function OrderSummary({ items, subtotal, shipping, tax, total }: 
                 alt={item.name}
                 className="w-full h-full object-cover"
               />
-              <div className="absolute -top-2 -right-2 w-6 h-6 flex items-center justify-center bg-gray-900 text-white text-xs font-bold rounded-full">
+              <div className="absolute -top-2 -right-2 w-6 h-6 flex items-center justify-center bg-peach-600 text-white text-xs font-bold rounded-full">
                 {item.quantity}
               </div>
             </div>

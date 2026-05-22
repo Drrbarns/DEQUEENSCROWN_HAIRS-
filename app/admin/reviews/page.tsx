@@ -149,7 +149,7 @@ export default function AdminReviewsPage() {
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         <button
           onClick={() => setStatusFilter('all')}
-          className={`p-4 rounded-xl border-2 transition-all text-left ${statusFilter === 'all' ? 'border-gray-900 bg-gray-50' : 'border-gray-200 bg-white'
+          className={`p-4 rounded-xl border-2 transition-all text-left ${statusFilter === 'all' ? 'border-peach-600 bg-gray-50' : 'border-gray-200 bg-white'
             }`}
         >
           <p className="text-2xl font-bold text-gray-900">{stats.total}</p>
@@ -165,7 +165,7 @@ export default function AdminReviewsPage() {
         </button>
         <button
           onClick={() => setStatusFilter('approved')}
-          className={`p-4 rounded-xl border-2 transition-all text-left ${statusFilter === 'approved' ? 'border-gray-900 bg-gray-50' : 'border-gray-200 bg-white'
+          className={`p-4 rounded-xl border-2 transition-all text-left ${statusFilter === 'approved' ? 'border-peach-600 bg-gray-50' : 'border-gray-200 bg-white'
             }`}
         >
           <p className="text-2xl font-bold text-gray-900">{stats.approved}</p>
@@ -203,7 +203,7 @@ export default function AdminReviewsPage() {
             <div className="flex items-center space-x-2">
               <button
                 onClick={() => handleBulkAction('Approve')}
-                className="px-4 py-2 bg-gray-700 hover:bg-gray-900 text-white rounded-lg text-sm font-medium transition-colors whitespace-nowrap cursor-pointer"
+                className="px-4 py-2 bg-peach-600 hover:bg-peach-700 text-white rounded-lg text-sm font-medium transition-colors whitespace-nowrap cursor-pointer"
               >
                 <i className="ri-check-line mr-2"></i>
                 Approve

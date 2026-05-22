@@ -172,7 +172,7 @@ export default function CustomerInsightsPage() {
             </button>
             <Link
               href="/admin"
-              className="bg-gray-900 hover:bg-gray-800 text-white px-6 py-3 rounded-lg font-semibold transition-colors whitespace-nowrap text-center"
+              className="bg-peach-600 hover:bg-peach-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors whitespace-nowrap text-center"
             >
               Back to Dashboard
             </Link>

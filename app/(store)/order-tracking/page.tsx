@@ -203,7 +203,7 @@ function OrderTrackingContent() {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full bg-gray-900 hover:bg-gray-800 text-white py-4 rounded-lg font-semibold transition-colors whitespace-nowrap disabled:opacity-50"
+                className="w-full bg-peach-600 hover:bg-peach-700 text-white py-4 rounded-lg font-semibold transition-colors whitespace-nowrap disabled:opacity-50"
               >
                 {loading ? (
                   <span className="flex items-center justify-center">
@@ -325,7 +325,7 @@ function OrderTrackingContent() {
                 <div className="relative flex flex-col items-center mr-6">
                   <div className={`w-12 h-12 flex items-center justify-center rounded-full font-bold transition-colors ${
                     step.status === 'completed'
-                      ? 'bg-gray-900 text-white'
+                      ? 'bg-peach-600 text-white'
                       : step.status === 'active'
                       ? 'bg-gray-100 text-gray-900 ring-4 ring-gray-200'
                       : 'bg-gray-200 text-gray-500'
@@ -334,7 +334,7 @@ function OrderTrackingContent() {
                   </div>
                   {index < trackingSteps.length - 1 && (
                     <div className={`w-0.5 h-16 mt-2 ${
-                      step.status === 'completed' ? 'bg-gray-900' : 'bg-gray-200'
+                      step.status === 'completed' ? 'bg-peach-600' : 'bg-gray-200'
                     }`}></div>
                   )}
                 </div>

@@ -279,7 +279,7 @@ export default function AdminCustomersPage() {
           <h1 className="text-3xl font-bold text-gray-900">Customers</h1>
           <p className="text-gray-600 mt-1">Manage your customer base and relationships</p>
         </div>
-        <button className="bg-gray-900 hover:bg-gray-800 text-white px-6 py-3 rounded-lg font-semibold transition-colors whitespace-nowrap cursor-pointer">
+        <button className="bg-peach-600 hover:bg-peach-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors whitespace-nowrap cursor-pointer">
           <i className="ri-download-line mr-2"></i>
           Export Customers
         </button>
@@ -360,7 +360,7 @@ export default function AdminCustomersPage() {
                 <i className="ri-vip-crown-line mr-2"></i>
                 Mark as VIP
               </button>
-              <button className="px-4 py-2 bg-gray-700 hover:bg-gray-800 text-white rounded-lg text-sm font-medium transition-colors whitespace-nowrap cursor-pointer">
+              <button className="px-4 py-2 bg-peach-600 hover:bg-peach-700 text-white rounded-lg text-sm font-medium transition-colors whitespace-nowrap cursor-pointer">
                 <i className="ri-download-line mr-2"></i>
                 Export
               </button>

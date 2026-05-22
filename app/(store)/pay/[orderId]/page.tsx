@@ -213,7 +213,7 @@ export default function PaymentPage() {
             <button
               type="button"
               onClick={() => setPaymentMethod('paystack')}
-              className={`p-4 rounded-xl border-2 text-left transition-colors cursor-pointer ${paymentMethod === 'paystack' ? 'border-gray-900 bg-gray-50' : 'border-gray-200 hover:border-gray-300'}`}
+              className={`p-4 rounded-xl border-2 text-left transition-colors cursor-pointer ${paymentMethod === 'paystack' ? 'border-peach-600 bg-gray-50' : 'border-gray-200 hover:border-gray-300'}`}
             >
               <i className="ri-bank-card-line text-2xl text-gray-700 mb-1 block"></i>
               <span className="font-semibold text-gray-900">Paystack</span>
@@ -222,7 +222,7 @@ export default function PaymentPage() {
             <button
               type="button"
               onClick={() => setPaymentMethod('moolre')}
-              className={`p-4 rounded-xl border-2 text-left transition-colors cursor-pointer ${paymentMethod === 'moolre' ? 'border-gray-900 bg-gray-50' : 'border-gray-200 hover:border-gray-300'}`}
+              className={`p-4 rounded-xl border-2 text-left transition-colors cursor-pointer ${paymentMethod === 'moolre' ? 'border-peach-600 bg-gray-50' : 'border-gray-200 hover:border-gray-300'}`}
             >
               <i className="ri-smartphone-line text-2xl text-gray-700 mb-1 block"></i>
               <span className="font-semibold text-gray-900">Moolre</span>
@@ -235,7 +235,7 @@ export default function PaymentPage() {
         <button
           onClick={handlePayNow}
           disabled={processing}
-          className="w-full bg-gray-700 hover:bg-gray-800 text-white py-4 rounded-xl font-semibold text-lg transition-colors disabled:opacity-70 flex items-center justify-center cursor-pointer"
+          className="w-full bg-peach-600 hover:bg-peach-700 text-white py-4 rounded-xl font-semibold text-lg transition-colors disabled:opacity-70 flex items-center justify-center cursor-pointer"
         >
           {processing ? (
             <>

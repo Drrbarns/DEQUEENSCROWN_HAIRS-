@@ -157,7 +157,7 @@ export default function SocialShareButtons({ url, title, description, image }: S
                 />
                 <button
                   onClick={handleCopyLink}
-                  className="px-4 py-2 bg-gray-700 hover:bg-gray-900 text-white rounded-lg font-medium transition-colors whitespace-nowrap"
+                  className="px-4 py-2 bg-peach-600 hover:bg-peach-700 text-white rounded-lg font-medium transition-colors whitespace-nowrap"
                 >
                   {copied ? (
                     <>

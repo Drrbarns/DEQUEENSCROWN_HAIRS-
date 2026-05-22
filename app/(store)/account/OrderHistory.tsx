@@ -110,7 +110,7 @@ export default function OrderHistory() {
         </div>
         <h3 className="text-lg font-semibold text-gray-900 mb-1">No orders yet</h3>
         <p className="text-gray-500 mb-6">Start shopping to see your orders here.</p>
-        <Link href="/shop" className="inline-block bg-gray-900 text-white px-6 py-2 rounded-lg font-medium hover:bg-gray-800 transition-colors">
+        <Link href="/shop" className="inline-block bg-peach-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-peach-700 transition-colors">
           Go to Shop
         </Link>
       </div>
@@ -182,7 +182,7 @@ export default function OrderHistory() {
               <div className="flex flex-wrap gap-3 pt-4 border-t border-gray-200">
                 <Link
                   href={`/order-tracking?order=${order.orderNumber}`}
-                  className="px-4 py-2 bg-gray-900 text-white rounded-lg font-semibold hover:bg-gray-800 transition-colors whitespace-nowrap"
+                  className="px-4 py-2 bg-peach-600 text-white rounded-lg font-semibold hover:bg-peach-700 transition-colors whitespace-nowrap"
                 >
                   <i className="ri-map-pin-line mr-2"></i>
                   Track Order

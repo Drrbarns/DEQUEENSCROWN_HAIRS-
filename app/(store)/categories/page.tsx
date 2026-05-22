@@ -93,7 +93,7 @@ export default async function CategoriesPage() {
         )}
       </div>
 
-      <div className="bg-gradient-to-br from-gray-900 to-gray-900 py-16">
+      <div className="bg-gradient-to-br from-peach-600 to-peach-700 py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold text-white mb-4">Can't Find What You're Looking For?</h2>
           <p className="text-xl text-gray-100 mb-8 leading-relaxed">
@@ -109,7 +109,7 @@ export default async function CategoriesPage() {
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 bg-gray-700 text-white px-8 py-4 rounded-full font-medium hover:bg-gray-600 transition-colors whitespace-nowrap"
+              className="inline-flex items-center gap-2 bg-peach-800 text-white px-8 py-4 rounded-full font-medium hover:bg-peach-900 transition-colors whitespace-nowrap"
             >
               <i className="ri-customer-service-line"></i>
               Contact Support

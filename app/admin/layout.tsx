@@ -278,7 +278,7 @@ export default function AdminLayout({
                   href={item.path}
                   onClick={() => window.innerWidth < 1024 && setIsSidebarOpen(false)} // Close on mobile click
                   className={`flex items-center justify-between px-4 py-3 rounded-lg transition-colors cursor-pointer ${isActive
-                    ? 'bg-gray-50 text-gray-900 font-semibold'
+                    ? 'bg-peach-50 text-peach-700 font-semibold'
                     : 'text-gray-700 hover:bg-gray-50'
                     }`}
                 >
